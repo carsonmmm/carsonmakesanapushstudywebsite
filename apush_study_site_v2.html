@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APUSH Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f9fc; --surface:#fff; --surface2:#f0f4f8; --border:#e2e8f0;
+  --blue:#1e6bb8; --blue-light:#e8f1fb; --blue-mid:#4a90d9; --blue-dark:#0f4c8a;
+  --text:#1a202c; --text-muted:#64748b; --accent:#f0a500; --accent-light:#fff8e6;
+  --green:#16a34a; --green-light:#dcfce7; --red:#dc2626; --red-light:#fee2e2;
+  --purple:#7c3aed; --purple-light:#ede9fe;
+  --radius:12px; --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+  --transition:0.22s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dark"] {
+  --bg:#0f172a; --surface:#1e293b; --surface2:#273548; --border:#334155;
+  --blue:#4a90d9; --blue-light:#1e3a5f; --blue-mid:#60a5e8; --blue-dark:#93c5fd;
+  --text:#f1f5f9; --text-muted:#94a3b8; --accent:#fbbf24; --accent-light:#2d2000;
+  --green:#4ade80; --green-light:#052e16; --red:#f87171; --red-light:#450a0a;
+  --purple:#a78bfa; --purple-light:#2e1065;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:16px;line-height:1.6;transition:background var(--transition),color var(--transition)}
+
+/* NAV */
+nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;padding:0 20px;display:flex;align-items:center;gap:6px;height:58px;box-shadow:0 1px 6px rgba(0,0,0,.07);transition:background var(--transition)}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--blue-dark);margin-right:12px;white-space:nowrap;flex-shrink:0}
+.nav-logo span{color:var(--accent)}
+.nav-tabs{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:6px 13px;border-radius:8px;border:none;background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s}
+.nav-tab:hover{background:var(--blue-light);color:var(--blue)}
+.nav-tab.active{background:var(--blue);color:#fff}
+.nav-right{display:flex;gap:8px;align-items:center;flex-shrink:0;margin-left:8px}
+.icon-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .15s;color:var(--text)}
+.icon-btn:hover{border-color:var(--blue);background:var(--blue-light)}
+
+/* SECTIONS */
+.section{display:none;padding:28px 20px;max-width:1020px;margin:0 auto;animation:fadeSlide .25s ease both}
+.section.active{display:block}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.page-title{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--blue-dark);margin-bottom:4px}
+.page-subtitle{color:var(--text-muted);margin-bottom:24px;font-size:.95rem}
+
+/* PERIOD FILTER */
+.period-filter{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
+.period-btn{padding:5px 13px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif}
+.period-btn:hover,.period-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* BUTTONS */
+.btn{padding:10px 20px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.btn-secondary{background:var(--surface);color:var(--text);border:1.5px solid var(--border)}.btn-secondary:hover{background:var(--surface2)}
+.btn-success{background:var(--green);color:#fff}.btn-success:hover{filter:brightness(.9)}
+.btn-danger{background:var(--red);color:#fff}.btn-danger:hover{filter:brightness(.9)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{filter:brightness(.9)}
+.btn-sm{padding:7px 13px;font-size:.8rem}
+.btn-xs{padding:4px 10px;font-size:.75rem}
+
+/* CARDS */
+.card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+
+/* BADGE */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700}
+.badge-blue{background:var(--blue-light);color:var(--blue)}
+.badge-green{background:var(--green-light);color:var(--green)}
+.badge-accent{background:var(--accent-light);color:var(--accent)}
+
+/* PROGRESS BAR */
+.prog-wrap{background:var(--border);border-radius:99px;height:7px;overflow:hidden}
+.prog-bar{height:100%;border-radius:99px;transition:width .5s}
+
+/* SPACER */
+.spacer{height:20px}
+hr.div{border:none;border-top:1px solid var(--border);margin:24px 0}
+
+/* ── FLASHCARDS ── */
+.fc-sr-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;background:var(--purple-light);color:var(--purple);font-size:.78rem;font-weight:600;margin-bottom:16px}
+.flashcard-area{display:flex;flex-direction:column;align-items:center}
+.flashcard-counter{font-size:.85rem;color:var(--text-muted);margin-bottom:10px}
+.fc-wrap{perspective:1200px;width:100%;max-width:620px;height:300px;cursor:pointer;margin-bottom:20px}
+.fc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.fc-wrap.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;background:var(--surface);border:1.5px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lg);backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px;text-align:center;transition:background var(--transition)}
+.fc-front{border-top:4px solid var(--blue)}
+.fc-back{transform:rotateY(180deg);border-top:4px solid var(--accent);background:var(--blue-light)}
+.card-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.fc-front .card-label{color:var(--blue)}.fc-back .card-label{color:var(--accent)}
+.card-period-badge{font-size:.7rem;background:var(--blue-light);color:var(--blue);padding:3px 10px;border-radius:20px;font-weight:600;margin-bottom:12px}
+.card-text{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text);line-height:1.5}
+.fc-back .card-text{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:400}
+.card-hint{font-size:.75rem;color:var(--text-muted);margin-top:14px}
+.fc-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.fc-mastered{margin-top:14px;font-size:.8rem;color:var(--text-muted)}
+
+/* ── QUIZ ── */
+.quiz-q{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:20px;line-height:1.5}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px}
+.quiz-timer{background:var(--blue-light);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:.85rem;font-weight:700}
+.quiz-timer.warning{background:var(--red-light);color:var(--red)}
+.quiz-options{display:flex;flex-direction:column;gap:9px}
+.quiz-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;text-align:left;transition:all .15s;display:flex;align-items:center;gap:11px}
+.quiz-opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-light)}
+.quiz-opt.correct{border-color:var(--green);background:var(--green-light)}
+.quiz-opt.wrong{border-color:var(--red);background:var(--red-light)}
+.quiz-opt:disabled{cursor:default}
+.opt-letter{width:27px;height:27px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;transition:all .15s}
+.quiz-opt.correct .opt-letter{background:var(--green);border-color:var(--green);color:#fff}
+.quiz-opt.wrong .opt-letter{background:var(--red);border-color:var(--red);color:#fff}
+.quiz-exp{margin-top:16px;padding:12px 16px;background:var(--surface2);border-radius:10px;font-size:.875rem;color:var(--text-muted);border-left:3px solid var(--blue);display:none}
+.quiz-exp.show{display:block}
+.quiz-results{text-align:center;padding:40px 28px}
+.quiz-score-big{font-family:'DM Serif Display',serif;font-size:4.5rem;color:var(--blue);line-height:1;margin-bottom:6px}
+
+/* ── TIMELINE ── */
+.tl-instructions{background:var(--blue-light);border:1px solid #bdd4ee;border-radius:10px;padding:12px 16px;font-size:.875rem;color:var(--blue-dark);margin-bottom:20px}
+.tl-pool{display:flex;flex-wrap:wrap;gap:9px;min-height:70px;padding:14px;background:var(--surface);border:2px dashed var(--border);border-radius:var(--radius);margin-bottom:20px}
+.tl-event{padding:7px 13px;background:var(--surface);border:1.5px solid var(--border);border-radius:8px;font-size:.82rem;font-weight:500;cursor:grab;user-select:none;transition:all .15s;box-shadow:var(--shadow)}
+.tl-event:hover{border-color:var(--blue);transform:translateY(-1px)}
+.tl-event.dragging{opacity:.35;cursor:grabbing}
+.tl-slots{display:flex;flex-direction:column;gap:7px}
+.tl-slot{display:flex;align-items:center;gap:10px}
+.slot-num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.slot-drop{flex:1;min-height:42px;padding:7px 13px;border:2px dashed var(--border);border-radius:8px;display:flex;align-items:center;background:var(--surface2);transition:all .15s;font-size:.85rem;color:var(--text-muted)}
+.slot-drop.drag-over{border-color:var(--blue);background:var(--blue-light)}
+.slot-drop.filled{border-style:solid;border-color:var(--border);background:var(--surface);color:var(--text)}
+.slot-drop.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.slot-drop.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+
+/* ── MATCH ── */
+.match-board{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.match-col-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px}
+.match-grid{display:flex;flex-direction:column;gap:7px}
+.match-card{padding:11px 14px;background:var(--surface);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:.85rem;transition:all .15s;min-height:50px;display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.match-card:hover{border-color:var(--blue);transform:translateY(-1px)}
+.match-card.selected{border-color:var(--blue);background:var(--blue-light);font-weight:600}
+.match-card.matched{border-color:var(--green);background:var(--green-light);color:var(--green);cursor:default;font-weight:600}
+.match-card.wrong-flash{border-color:var(--red);background:var(--red-light)}
+.match-stats{display:flex;gap:18px}
+.match-stat-val{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--blue);line-height:1}
+.match-stat-label{font-size:.7rem;color:var(--text-muted);font-weight:600;text-transform:uppercase}
+
+/* ── DBQ ── */
+.thesis-prompt{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}
+.prompt-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.prompt-text{font-family:'DM Serif Display',serif;font-size:1.1rem;line-height:1.6}
+textarea.thesis-input{width:100%;min-height:110px;padding:13px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;resize:vertical;outline:none;transition:border .15s;background:var(--surface);color:var(--text)}
+textarea.thesis-input:focus{border-color:var(--blue)}
+.thesis-rubric{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:16px}
+.rubric-item{padding:13px 15px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface2)}
+.rubric-item.pass{border-color:var(--green);background:var(--green-light)}
+.rubric-item.fail{border-color:var(--red);background:var(--red-light)}
+.rubric-icon{font-size:1.3rem;margin-bottom:5px}
+.rubric-name{font-weight:700;font-size:.83rem;margin-bottom:3px}
+.rubric-feedback{font-size:.76rem;color:var(--text-muted)}
+.rubric-item.pass .rubric-feedback{color:var(--green)}
+.rubric-item.fail .rubric-feedback{color:var(--red)}
+.thesis-tips{background:var(--accent-light);border:1px solid #f0c870;border-radius:10px;padding:14px 16px;margin-top:18px}
+.thesis-tips-title{font-weight:700;font-size:.83rem;color:#92600a;margin-bottom:6px}
+.thesis-tips li{font-size:.81rem;color:#92600a;margin-bottom:3px;padding-left:4px}
+
+/* ── DASHBOARD ── */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:28px}
+.dash-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.dash-card-val{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--blue);line-height:1;margin-bottom:4px}
+.dash-card-label{font-size:.8rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.period-mastery{display:flex;flex-direction:column;gap:12px}
+.pm-row{display:flex;align-items:center;gap:12px}
+.pm-label{font-size:.82rem;font-weight:600;width:56px;flex-shrink:0;color:var(--text)}
+.pm-bar-wrap{flex:1;background:var(--border);border-radius:99px;height:9px;overflow:hidden}
+.pm-bar{height:100%;border-radius:99px;background:var(--blue);transition:width .7s}
+.pm-pct{font-size:.78rem;color:var(--text-muted);width:36px;text-align:right;flex-shrink:0}
+.quiz-history{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow-y:auto}
+.quiz-history-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--surface2);border-radius:8px;font-size:.82rem}
+.streak-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:12px;background:var(--accent-light);border:1.5px solid var(--accent);font-weight:700;color:var(--accent);font-size:1rem}
+
+/* ── CONNECTIONS WEB ── */
+#connections-canvas{width:100%;border-radius:var(--radius);background:var(--surface);border:1.5px solid var(--border);cursor:grab;box-shadow:var(--shadow)}
+#connections-canvas:active{cursor:grabbing}
+.conn-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.conn-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.conn-legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted)}
+.conn-legend-dot{width:12px;height:12px;border-radius:50%}
+
+/* ── CONFETTI ── */
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.confetti-piece{position:absolute;width:10px;height:10px;border-radius:2px;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* ── HOME ── */
+.home-hero{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%);border-radius:16px;padding:44px 36px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden}
+.home-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.06)}
+.home-hero-title{font-family:'DM Serif Display',serif;font-size:2.2rem;margin-bottom:8px;line-height:1.2}
+.home-hero-sub{opacity:.85;font-size:.95rem;margin-bottom:24px}
+.home-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.home-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px 18px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);text-align:center}
+.home-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
+.home-card-icon{font-size:1.9rem;margin-bottom:10px}
+.home-card-title{font-weight:700;font-size:.92rem;color:var(--text);margin-bottom:3px}
+.home-card-desc{font-size:.76rem;color:var(--text-muted)}
+
+@media(max-width:640px){
+  .match-board{grid-template-columns:1fr}
+  .home-hero{padding:28px 20px}
+  .home-hero-title{font-size:1.7rem}
+  .section{padding:20px 14px}
+  .fc-front,.fc-back{padding:22px}
+  .fc-wrap{height:260px}
+  .card-text{font-size:1.05rem}
+  nav{padding:0 12px}
+  .nav-logo{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">APUSH <span>Hub</span></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('home')">🏠 Home</button>
+    <button class="nav-tab" onclick="showSection('dashboard')">📊 Dashboard</button>
+    <button class="nav-tab" onclick="showSection('flashcards')">🃏 Flashcards</button>
+    <button class="nav-tab" onclick="showSection('quiz')">📝 Quiz</button>
+    <button class="nav-tab" onclick="showSection('timeline')">📅 Timeline</button>
+    <button class="nav-tab" onclick="showSection('match')">🔗 Match</button>
+    <button class="nav-tab" onclick="showSection('dbq')">✍️ DBQ/LEQ</button>
+    <button class="nav-tab" onclick="showSection('connections')">🕸️ Connections</button>
+  </div>
+  <div class="nav-right">
+    <button class="icon-btn" onclick="toggleDark()" title="Toggle dark mode" id="dark-btn">🌙</button>
+  </div>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div id="home" class="section active">
+  <div class="home-hero">
+    <div class="home-hero-title">APUSH Study Hub</div>
+    <div class="home-hero-sub">Everything you need to ace the exam — Periods 1 through 9.</div>
+    <button class="btn btn-accent" onclick="showSection('flashcards')">Start Studying →</button>
+  </div>
+  <div class="home-cards">
+    <div class="home-card" onclick="showSection('dashboard')"><div class="home-card-icon">📊</div><div class="home-card-title">Dashboard</div><div class="home-card-desc">Track your progress</div></div>
+    <div class="home-card" onclick="showSection('flashcards')"><div class="home-card-icon">🃏</div><div class="home-card-title">Flashcards</div><div class="home-card-desc">Spaced repetition</div></div>
+    <div class="home-card" onclick="showSection('quiz')"><div class="home-card-icon">📝</div><div class="home-card-title">Quiz</div><div class="home-card-desc">Timed MCQ practice</div></div>
+    <div class="home-card" onclick="showSection('timeline')"><div class="home-card-icon">📅</div><div class="home-card-title">Timeline</div><div class="home-card-desc">Drag into order</div></div>
+    <div class="home-card" onclick="showSection('match')"><div class="home-card-icon">🔗</div><div class="home-card-title">Match Game</div><div class="home-card-desc">Terms & definitions</div></div>
+    <div class="home-card" onclick="showSection('dbq')"><div class="home-card-icon">✍️</div><div class="home-card-title">DBQ/LEQ</div><div class="home-card-desc">Thesis trainer</div></div>
+    <div class="home-card" onclick="showSection('connections')"><div class="home-card-icon">🕸️</div><div class="home-card-title">Connections Web</div><div class="home-card-desc">See how events link</div></div>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div id="dashboard" class="section">
+  <div class="page-title">Progress Dashboard</div>
+  <div class="page-subtitle">Track your mastery across all periods and study sessions.</div>
+  <div id="dash-content"></div>
+</div>
+
+<!-- ══ FLASHCARDS ══ -->
+<div id="flashcards" class="section">
+  <div class="page-title">Flashcards</div>
+  <div class="page-subtitle">Cards you miss come back more often. Click a card to flip.</div>
+  <div class="fc-sr-badge">🧠 Spaced Repetition Active</div>
+  <div class="period-filter" id="fc-filter"></div>
+  <div class="flashcard-area">
+    <div class="flashcard-counter" id="fc-counter">Card 1 of —</div>
+    <div class="prog-wrap" style="width:100%;max-width:620px;margin-bottom:10px"><div class="prog-bar" id="fc-bar" style="width:0%;background:var(--blue)"></div></div>
+    <div class="fc-wrap" id="fc-wrap" onclick="flipCard()">
+      <div class="fc-inner" id="fc-inner">
+        <div class="fc-front">
+          <div class="card-label">Question</div>
+          <div class="card-period-badge" id="fc-pbadge">—</div>
+          <div class="card-text" id="fc-front">Loading…</div>
+          <div class="card-hint">Click to reveal answer</div>
+        </div>
+        <div class="fc-back">
+          <div class="card-label">Answer</div>
+          <div class="card-text" id="fc-back">Loading…</div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-controls">
+      <button class="btn btn-danger btn-sm" onclick="markCard(0)">😰 Again</button>
+      <button class="btn btn-secondary btn-sm" onclick="prevCard()">← Prev</button>
+      <button class="btn btn-secondary btn-sm" onclick="shuffleFC()">🔀 Shuffle</button>
+      <button class="btn btn-secondary btn-sm" onclick="nextCard()">Next →</button>
+      <button class="btn btn-success btn-sm" onclick="markCard(1)">✓ Got It!</button>
+    </div>
+    <div class="fc-mastered" id="fc-mastered"></div>
+  </div>
+</div>
+
+<!-- ══ QUIZ ══ -->
+<div id="quiz" class="section">
+  <div class="page-title">Multiple Choice Quiz</div>
+  <div class="page-subtitle">30 seconds per question. Results are saved to your dashboard.</div>
+  <div class="period-filter" id="quiz-filter"></div>
+  <div id="quiz-area"></div>
+</div>
+
+<!-- ══ TIMELINE ══ -->
+<div id="timeline" class="section">
+  <div class="page-title">Timeline Builder</div>
+  <div class="page-subtitle">Drag events from the pool into the correct chronological order.</div>
+  <div class="period-filter" id="tl-filter"></div>
+  <div id="tl-area"></div>
+</div>
+
+<!-- ══ MATCH ══ -->
+<div id="match" class="section">
+  <div class="page-title">Match Game</div>
+  <div class="page-subtitle">Select a term, then its matching definition.</div>
+  <div class="period-filter" id="match-filter"></div>
+  <div id="match-area"></div>
+</div>
+
+<!-- ══ DBQ/LEQ ══ -->
+<div id="dbq" class="section">
+  <div class="page-title">DBQ / LEQ Thesis Trainer</div>
+  <div class="page-subtitle">Write a thesis and get instant rubric feedback.</div>
+  <div id="dbq-area"></div>
+</div>
+
+<!-- ══ CONNECTIONS WEB ══ -->
+<div id="connections" class="section">
+  <div class="page-title">Connections Web</div>
+  <div class="page-subtitle">See how major events and themes link across all 9 periods. Click a node to highlight its connections.</div>
+  <div class="conn-controls">
+    <button class="btn btn-secondary btn-sm" onclick="resetConnView()">Reset View</button>
+    <button class="btn btn-secondary btn-sm" onclick="filterConn('all')">All Connections</button>
+    <button class="btn btn-secondary btn-sm" onclick="filterConn('slavery')">Slavery Thread</button>
+    <button class="btn btn-secondary btn-sm" onclick="filterConn('government')">Gov't Power Thread</button>
+    <button class="btn btn-secondary btn-sm" onclick="filterConn('reform')">Reform Thread</button>
+  </div>
+  <canvas id="connections-canvas" height="580"></canvas>
+  <div class="conn-legend" id="conn-legend"></div>
+</div>
+
+<script>
+// ═══════════════════════════════
+// DARK MODE
+// ═══════════════════════════════
+let darkMode = localStorage.getItem('apush-dark')==='1';
+function applyDark(){document.documentElement.setAttribute('data-theme',darkMode?'dark':'');document.getElementById('dark-btn').textContent=darkMode?'☀️':'🌙';localStorage.setItem('apush-dark',darkMode?'1':'0');}
+applyDark();
+function toggleDark(){darkMode=!darkMode;applyDark();}
+
+// ═══════════════════════════════
+// CONFETTI
+// ═══════════════════════════════
+function launchConfetti(){
+  const c=document.createElement('div');c.className='confetti-container';document.body.appendChild(c);
+  const colors=['#1e6bb8','#f0a500','#16a34a','#dc2626','#7c3aed','#0f4c8a'];
+  for(let i=0;i<80;i++){
+    const p=document.createElement('div');p.className='confetti-piece';
+    p.style.cssText=`left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;animation-duration:${1.5+Math.random()*2}s;animation-delay:${Math.random()*.5}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
+    c.appendChild(p);
+  }
+  setTimeout(()=>c.remove(),3500);
+}
+
+// ═══════════════════════════════
+// STORAGE / STATS
+// ═══════════════════════════════
+let stats = JSON.parse(localStorage.getItem('apush-stats')||'{}');
+// stats: { mastered:{}, srWeights:{}, quizHistory:[], streak:{lastDate,count} }
+if(!stats.mastered) stats.mastered={};
+if(!stats.srWeights) stats.srWeights={};
+if(!stats.quizHistory) stats.quizHistory=[];
+if(!stats.streak) stats.streak={lastDate:'',count:0};
+
+function saveStats(){localStorage.setItem('apush-stats',JSON.stringify(stats));}
+
+function recordQuiz(period,score,total){
+  stats.quizHistory.unshift({date:new Date().toLocaleDateString(),period,score,total,pct:Math.round(score/total*100)});
+  if(stats.quizHistory.length>30) stats.quizHistory.pop();
+  // streak
+  const today=new Date().toDateString();
+  const last=stats.streak.lastDate;
+  if(last===today){/* same day */}
+  else if(last===new Date(Date.now()-86400000).toDateString()){stats.streak.count++;stats.streak.lastDate=today;}
+  else{stats.streak.count=1;stats.streak.lastDate=today;}
+  saveStats();
+}
+
+// ═══════════════════════════════
+// NAV
+// ═══════════════════════════════
+const PERIODS=['All','P1&2','P3','P4','P5','P6','P7','P8&9'];
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const map={home:0,dashboard:1,flashcards:2,quiz:3,timeline:4,match:5,dbq:6,connections:7};
+  if(map[id]!==undefined) document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
+  const inits={dashboard:initDash,flashcards:initFC,quiz:initQuiz,timeline:initTL,match:initMatch,dbq:initDBQ,connections:initConn};
+  if(inits[id]) inits[id]();
+}
+
+function buildFilter(id,cb){
+  const el=document.getElementById(id);if(!el)return;el.innerHTML='';
+  PERIODS.forEach(p=>{const b=document.createElement('button');b.className='period-btn'+(p==='All'?' active':'');b.textContent=p;b.onclick=()=>{el.querySelectorAll('.period-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(p);};el.appendChild(b);});
+}
+
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+// ═══════════════════════════════
+// DATA — FLASHCARDS (expanded)
+// ═══════════════════════════════
+const FC_DATA=[
+  // P1&2
+  {p:'P1&2',q:'What was the Columbian Exchange?',a:'Exchange of crops, animals & disease between Europe and Americas after 1492. Killed ~90% of Natives via smallpox, fueling the African slave trade.'},
+  {p:'P1&2',q:'What was the Encomienda system?',a:'Spanish system granting Native labor to colonists in exchange for Christianization — similar to slavery. Bartolome de las Casas exposed its brutality (Black Legend, 1552).'},
+  {p:'P1&2',q:'Why did Bacon\'s Rebellion (1676) matter?',a:'Freed indentured servants revolted against Virginia elites. Planters shifted to African slavery — permanent, hereditary, and less dangerous than a landless white underclass.'},
+  {p:'P1&2',q:'What was Salutary Neglect?',a:'Britain loosely enforced colonial laws, allowing self-governance. When Britain tightened control post-1763, colonists resisted — a root cause of the Revolution.'},
+  {p:'P1&2',q:'What did the Great Awakening (1730s–40s) accomplish?',a:'Religious revival by Edwards & Whitfield challenged authority, encouraged individualism, and created a shared colonial culture — laying groundwork for the Revolution.'},
+  {p:'P1&2',q:'What was the significance of the Zenger Trial (1733)?',a:'Established precedent for freedom of the press — you can print negative stories about officials as long as they are true.'},
+  {p:'P1&2',q:'Compare New England vs. Chesapeake colonies.',a:'New England: families, religious community (Puritans), town meetings, subsistence farming. Chesapeake: mostly single men, tobacco profit-driven, joint-stock companies, indentured servants → slavery.'},
+  {p:'P1&2',q:'What was the headright system?',a:'50 acres granted to anyone sponsoring an indentured servant\'s voyage to Virginia. Primary labor source before Bacon\'s Rebellion shifted planters to slavery.'},
+  {p:'P1&2',q:'Why was the Virginia House of Burgesses significant?',a:'Established 1619 — first representative assembly in the colonies. Set precedent for self-governance that colonists would come to expect and defend.'},
+  {p:'P1&2',q:'What was the Dominion of New England (1686)?',a:'England\'s attempt to centralize control of colonies under Sir Edmund Andros. Colonists resented it and it collapsed after the Glorious Revolution — showing the limits of direct imperial control.'},
+  // P3
+  {p:'P3',q:'What were the main causes of the American Revolution?',a:'Economic: Stamp Act, Townshend Acts (taxation without representation). Political: Intolerable Acts, quartering troops. Philosophical: Enlightenment — Locke\'s natural rights, Paine\'s Common Sense.'},
+  {p:'P3',q:'Why was Saratoga (1777) the turning point of the Revolution?',a:'American victory convinced France to formally ally with the US, providing military and financial aid — crucial to eventual American victory.'},
+  {p:'P3',q:'What were the weaknesses of the Articles of Confederation?',a:'No power to tax, no executive, no ability to regulate interstate commerce, each state had one vote. Shays\' Rebellion (1787) exposed these flaws — leading to the Constitutional Convention.'},
+  {p:'P3',q:'What were the key Constitutional compromises?',a:'Great Compromise: Senate = equal representation, House = by population. 3/5 Compromise: enslaved people counted as 3/5 for taxation and representation. Commerce Compromise: Congress could regulate trade.'},
+  {p:'P3',q:'What did Hamilton\'s Economic Plan propose?',a:'National bank, assumption of state war debts, protective tariffs, whiskey excise tax. Opposed by Jefferson/Madison as unconstitutional expansion of federal power and favoritism toward the wealthy.'},
+  {p:'P3',q:'What was Washington\'s Farewell Address warning?',a:'Warned against permanent foreign alliances and political parties. Set 2-term precedent. Established tradition of American isolationism that lasted until WWI/WWII.'},
+  {p:'P3',q:'What were the Alien and Sedition Acts (1797)?',a:'Alien Act: raised residency requirements for citizenship. Sedition Act: criminalized criticism of the government. Jefferson & Madison\'s Virginia & Kentucky Resolutions foreshadowed nullification.'},
+  {p:'P3',q:'What made the Election of 1800 a "revolution"?',a:'First peaceful transfer of power between political parties in US history — proving the Constitution could handle political change without violence.'},
+  // P4
+  {p:'P4',q:'What did Marbury v. Madison (1803) establish?',a:'Judicial review — Supreme Court\'s power to strike down unconstitutional laws. Made the judiciary a true co-equal branch. Basis of American constitutional law.'},
+  {p:'P4',q:'Why was the Louisiana Purchase (1803) controversial?',a:'Jefferson was a strict constructionist — the Constitution doesn\'t give the president power to purchase territory. He bought it anyway for $15M, doubling US size and using implied powers.'},
+  {p:'P4',q:'What was the Market Revolution?',a:'Early 19th-century industrialization: steamboats (1807), Erie Canal (1825), railroads, telegraph, cotton gin, interchangeable parts. Deepened North (industrial) vs. South (slave-cotton) divide.'},
+  {p:'P4',q:'What was the Missouri Compromise (1820)?',a:'By Henry Clay — Missouri entered as slave state, Maine as free state. Drew 36°30\' line: slavery excluded from Louisiana Purchase territory north of that line. Delayed but didn\'t resolve the crisis.'},
+  {p:'P4',q:'What was the Nullification Crisis (1828–33)?',a:'SC declared federal tariffs null and void. Calhoun\'s nullification theory. Jackson issued Force Bill (military enforcement) but also reduced tariff. Revealed deep states\' rights tensions — preview of secession.'},
+  {p:'P4',q:'What were the major reform movements of the Age of Reform?',a:'Abolitionism (Garrison\'s Liberator 1831, Douglass Narrative 1845), Women\'s Rights (Seneca Falls 1848), Temperance, Transcendentalism (Emerson, Thoreau), prison reform (Dix), public education (Mann).'},
+  {p:'P4',q:'What was the Second Great Awakening (c.1790–1820s)?',a:'Religious revival emphasizing individual salvation and moral reform. Inspired temperance, abolitionism, and women\'s rights movements. Key figures: Charles Finney, Lyman Beecher.'},
+  // P5
+  {p:'P5',q:'Why did compromise over slavery become impossible by the 1850s?',a:'Missouri Compromise (1820) overridden by Kansas-Nebraska Act (1854). Dred Scott (1857) removed congressional power to limit slavery. Each failed compromise made the next crisis worse.'},
+  {p:'P5',q:'What was the significance of the Dred Scott Decision (1857)?',a:'Ruled Black people not citizens; Congress had no power to ban slavery anywhere. Outraged abolitionists, validated Southern demands. Made civil war nearly inevitable.'},
+  {p:'P5',q:'What was the significance of the Emancipation Proclamation (1863)?',a:'Freed enslaved people in Confederate states; changed war\'s moral purpose; prevented British support for Confederacy (Britain abolished slavery 1833); allowed Black men into Union Army.'},
+  {p:'P5',q:'Why did Reconstruction ultimately fail?',a:'Compromise of 1877 ended federal military presence in South. Jim Crow laws, sharecropping, KKK terror, and Black Codes reinstated racial subjugation. Short-term constitutional gains reversed.'},
+  {p:'P5',q:'What were the Union\'s strengths in the Civil War?',a:'Larger population, more soldiers, superior railroads/manufacturing, naval blockade. Lincoln wielded greater executive power than Davis, whose states\' rights ideology hampered Confederate coordination.'},
+  {p:'P5',q:'What was Manifest Destiny?',a:'Coined by John O\'Sullivan (1845) — belief God intended Americans to expand across North America. Justified Mexican-American War, displacement of Natives, and westward settlement.'},
+  {p:'P5',q:'What did the 13th, 14th, and 15th Amendments do?',a:'13th (1865): abolished slavery. 14th (1868): citizenship for all born in US, equal protection, overturned Dred Scott. 15th (1870): Black men\'s right to vote.'},
+  // P6
+  {p:'P6',q:'What is horizontal vs. vertical integration?',a:'Horizontal (Rockefeller/Standard Oil): buy out competitors in SAME industry — monopoly. Vertical (Carnegie/Steel): control ALL stages of production — mines to mills to railroads.'},
+  {p:'P6',q:'What was Social Darwinism?',a:'"Survival of the fittest" applied to society — justified laissez-faire, inequality, racism, imperialism. Used to oppose labor laws and government regulation. Associated with Herbert Spencer.'},
+  {p:'P6',q:'Why did Gilded Age labor strikes repeatedly fail?',a:'Federal/state governments sided with business — troops broke strikes (Railroad 1877, Homestead 1892, Pullman 1894). Courts issued injunctions against unions. Public linked unions to radicalism.'},
+  {p:'P6',q:'Compare Booker T. Washington and W.E.B. DuBois.',a:'Washington: accept segregation for now, vocational skills, economic advancement (Tuskegee, "Atlanta Compromise" 1895). DuBois: demand full rights NOW; higher education for "Talented Tenth" (1903).'},
+  {p:'P6',q:'What was Plessy v. Ferguson (1896)?',a:'"Separate but equal" did not violate 14th Amendment — legalized racial segregation. Not overturned until Brown v. Board of Education (1954), 58 years later.'},
+  {p:'P6',q:'What was the significance of the transcontinental railroad (1869)?',a:'Tied the country together economically; opened the West to settlement; used Chinese and Irish immigrant labor; devastated Native Americans by eliminating buffalo herds; created standardized time zones.'},
+  {p:'P6',q:'What was the Populist Party (1892)?',a:'Formed by Farmers\' Alliance members frustrated with Wall Street and monopolies. Demanded railroad nationalization, graduated income tax, free coinage of silver. Merged with Democrats under Bryan in 1896.'},
+  // P7
+  {p:'P7',q:'What caused the Spanish-American War (1898)?',a:'USS Maine explosion (blamed on Spain), Yellow Journalism (Hearst/Pulitzer), Cuban independence movement, de Lôme letter mocking McKinley. Result: US got Philippines, Guam, Puerto Rico.'},
+  {p:'P7',q:'Compare TR, Taft, and Wilson\'s foreign policies.',a:'TR Big Stick: military force in Latin America, Panama Canal. Taft Dollar Diplomacy: US investment for political influence. Wilson Moral Diplomacy: recognize only democracies — but still intervened in Mexico/Haiti.'},
+  {p:'P7',q:'Why did the US enter WWI and what was the home front impact?',a:'Entry: Zimmermann Telegram + unrestricted submarine warfare. Home front: CPI propaganda, rationing, Liberty Bonds, Espionage/Sedition Acts, Great Migration, women in workforce → 19th Amendment.'},
+  {p:'P7',q:'Was the 1920s an age of modernism?',a:'Both: Modernism (consumerism, jazz, Harlem Renaissance, Hollywood, Ford assembly line) AND backlash (Prohibition, Scopes Trial 1925, KKK revival, Immigration Quota Acts, Sacco-Vanzetti). A decade of tension.'},
+  {p:'P7',q:'How did the New Deal change the federal government?',a:'FDR expanded federal responsibility: WPA/CCC (relief), AAA/TVA (recovery), Social Security/FDIC/Glass-Steagall (reform). Reversed Hoover\'s laissez-faire and permanently established the social safety net.'},
+  {p:'P7',q:'What were the WWII turning points?',a:'Pacific: Battle of Midway (1942) — US went on offensive after Coral Sea. European: D-Day Normandy (1944) — opened Western Front. End: Atomic bombs on Hiroshima and Nagasaki (August 1945).'},
+  {p:'P7',q:'What was the significance of the Harlem Renaissance (1920s)?',a:'Flowering of African American literature, music, and art during the Great Migration. Langston Hughes, Zora Neale Hurston, Duke Ellington, Louis Armstrong. Created a new Black cultural identity and pride.'},
+  {p:'P7',q:'What caused the Great Depression (1929)?',a:'Stock market speculation, buying on margin, overproduction, weak banking regulation, Hawley-Smoot Tariff (worsened it). Bank failures cascaded, unemployment hit 25%. Exposed fragility of the 1920s boom.'},
+  // P8&9
+  {p:'P8&9',q:'What was the Truman Doctrine (1947)?',a:'US would provide military and economic aid to any nation threatened by communist takeover. Ended isolationism, launched containment policy. Combined with Marshall Plan ($12B to W. Europe) shaped 40+ years of Cold War.'},
+  {p:'P8&9',q:'How did Civil Rights activists use legal and direct action strategies?',a:'Legal: NAACP/Thurgood Marshall → Brown v. Board (1954). Direct action: Montgomery Boycott (1955), sit-ins, Freedom Rides, March on Washington (1963). Both were needed — courts moved slowly without political pressure.'},
+  {p:'P8&9',q:'Why did public support for Vietnam collapse?',a:'Tet Offensive (1968) proved government had lied about winning. Pentagon Papers (1971) confirmed deception. Credibility gap destroyed trust. Draft fell disproportionately on poor and minorities.'},
+  {p:'P8&9',q:'What was Watergate and its consequences?',a:'Nixon\'s CREEP broke into DNC HQ; Nixon covered it up using executive privilege. White House Tapes = smoking gun. Nixon resigned (1974) — first president to do so. Strengthened distrust of government.'},
+  {p:'P8&9',q:'What was Reaganomics?',a:'"Trickle-down economics": cut taxes (mainly wealthy), deregulate business, reduce social spending. Ended recession but widened income gap. Combined with Moral Majority, shifted US politics rightward for decades.'},
+  {p:'P8&9',q:'How did 9/11 reshape American policy?',a:'Foreign: War on Terror; Afghanistan (2001), Iraq (2003); preemptive war doctrine. Domestic: PATRIOT Acts expanded surveillance; Dept. of Homeland Security; civil liberties vs. security debate. Bush: 90% → 25% approval.'},
+  {p:'P8&9',q:'What was the significance of Brown v. Board (1954)?',a:'NAACP/Thurgood Marshall overturned Plessy v. Ferguson — "separate but equal" is unconstitutional. But "all deliberate speed" was a loophole. Sparked massive resistance and set stage for Civil Rights Movement.'},
+  {p:'P8&9',q:'What was LBJ\'s Great Society (1965)?',a:'Most ambitious domestic program since FDR: Medicare/Medicaid, Civil Rights Acts (1964/1965/1968), Head Start, Job Corps, VISTA, voting rights. Aimed to eliminate poverty and racial inequality.'},
+  {p:'P8&9',q:'What were the causes of conservative resurgence in the 1980s?',a:'Backlash to 1960s social movements, Vietnam defeat, stagflation, Iran Hostage Crisis. Moral Majority (1979) mobilized evangelical Christians. Reagan\'s "Morning in America" message resonated broadly.'},
+  {p:'P8&9',q:'What was détente and why did it matter?',a:'Nixon\'s policy of easing Cold War tensions through diplomacy — visiting China (1972), SALT I/II with USSR. Reduced risk of nuclear war, showed ideological flexibility, reshaped global power dynamics.'},
+];
+
+// ═══════════════════════════════
+// DATA — QUIZ (expanded)
+// ═══════════════════════════════
+const QUIZ=[
+  {p:'P1&2',q:'Which event best explains why African slavery replaced indentured servitude in the Chesapeake?',opts:['The Navigation Acts made imports too expensive','Bacon\'s Rebellion revealed the danger of a large class of landless free whites','The Great Awakening changed colonists\' moral views','The Zenger Trial established new labor rights'],ans:1,exp:'After Bacon\'s Rebellion (1676), planters feared unrest from freed indentured servants. African slavery — permanent and hereditary — eliminated this problem.'},
+  {p:'P1&2',q:'The Puritan "City upon a Hill" concept most directly expressed the idea that:',opts:['All colonists should convert to Puritanism','Massachusetts Bay would serve as a model of godly society','The Church of England needed to be destroyed','Native Americans could join Puritan society'],ans:1,exp:'John Winthrop\'s 1630 sermon argued Massachusetts Bay should be a righteous example for the Anglican Church and the world.'},
+  {p:'P1&2',q:'Salutary neglect most directly contributed to the American Revolution by:',opts:['Encouraging trade with France and Spain','Allowing colonial assemblies to develop strong traditions of self-governance','Giving colonists freedom to practice any religion','Permitting colonists to settle west of the Appalachians'],ans:1,exp:'Decades of self-governance made colonists resistant to British attempts to tighten control after 1763.'},
+  {p:'P3',q:'The Articles of Confederation\'s greatest weakness was that it:',opts:['Gave too much power to the President','Had no judicial branch','Could not levy taxes on the states','Required a simple majority to pass laws'],ans:2,exp:'Congress under the Articles could only request money from states — it could not tax. This crippled its ability to pay war debts or fund anything.'},
+  {p:'P3',q:'Shays\' Rebellion (1787) most directly led to:',opts:['Passage of the Bill of Rights','Increased support for a stronger central government','End of the Articles immediately','First use of federal troops against citizens'],ans:1,exp:'The rebellion demonstrated the Articles\' weakness — no national military to quell unrest. It boosted Hamilton\'s Federalist case for the Constitution.'},
+  {p:'P3',q:'The "Revolution of 1800" was significant primarily because it:',opts:['Was the first election decided by the House of Representatives','Demonstrated the peaceful transfer of power between political parties','Led to the abolition of the Federalist Party','Resulted in the passage of the 12th Amendment before the election'],ans:1,exp:'Jefferson\'s victory marked the first time power transferred peacefully between parties in the US — proving constitutional democracy could survive political change.'},
+  {p:'P4',q:'Marbury v. Madison (1803) was significant because it:',opts:['Expanded presidential war powers','Established judicial review — the Court\'s power to strike down laws','Guaranteed civil rights for all citizens','Overturned the Alien and Sedition Acts'],ans:1,exp:'Chief Justice Marshall used this case to assert the Supreme Court\'s authority to review and invalidate unconstitutional laws.'},
+  {p:'P4',q:'The Nullification Crisis of 1828–33 was primarily a conflict over:',opts:['Slavery in western territories','Federal tariff policy and states\' rights vs. federal authority','The rechartering of the National Bank','Native American removal'],ans:1,exp:'South Carolina declared the Tariff of Abominations unconstitutional. Calhoun\'s nullification theory previewed the secession crisis.'},
+  {p:'P4',q:'The Market Revolution of the early 19th century most significantly:',opts:['Eliminated regional economic differences between North and South','Deepened the economic and cultural divide between North and South','Led directly to the abolition of slavery in the North','Created a unified national economy that benefited all regions equally'],ans:1,exp:'The Market Revolution made the North increasingly industrial and wage-labor-based while the South doubled down on slave-based cotton agriculture, deepening sectional tensions.'},
+  {p:'P5',q:'The Kansas-Nebraska Act (1854) was controversial primarily because it:',opts:['Allowed California to enter as a free state','Overrode the Missouri Compromise by introducing popular sovereignty','Strengthened the Fugitive Slave Law','Abolished the slave trade in Washington D.C.'],ans:1,exp:'Douglas\'s act created popular sovereignty in Kansas and Nebraska, directly overriding the 36°30\' line of the Missouri Compromise (1820).'},
+  {p:'P5',q:'The Emancipation Proclamation (1863) was most significant because it:',opts:['Immediately freed all enslaved people in the US','Changed the moral purpose of the war and prevented British support for the Confederacy','Was enthusiastically supported by border states','Was approved by Congress as a formal law'],ans:1,exp:'The Proclamation reframed the war as a moral crusade against slavery, preventing Britain (which had abolished slavery in 1833) from supporting the South.'},
+  {p:'P5',q:'The Compromise of 1877 was most significant because it:',opts:['Resolved sectional tensions over slavery permanently','Ended Reconstruction by removing federal troops from the South','Established the Supreme Court\'s power over election disputes','Created the sharecropping system in the South'],ans:1,exp:'The deal gave Hayes the presidency in exchange for withdrawing federal troops from the South — effectively abandoning formerly enslaved people to Jim Crow.'},
+  {p:'P6',q:'Which best describes Social Darwinism as applied in the Gilded Age?',opts:['"Survival of the fittest" justified laissez-faire economics and inequality','Government should provide social safety nets for workers','Wealthy individuals had a responsibility to redistribute wealth equally','Workers had the right to organize and strike'],ans:0,exp:'Social Darwinism argued the rich were rich because of natural superiority — used to oppose labor laws and justify monopolies.'},
+  {p:'P6',q:'The Pullman Strike (1894) was significant because:',opts:['It was the first successful labor strike in US history','Federal courts used injunctions and troops to crush it, setting precedent','It led directly to the Sherman Antitrust Act','Workers won the 8-hour workday'],ans:1,exp:'President Cleveland invoked disruption of mail delivery to justify intervention. Debs was jailed — showing courts and government consistently sided with capital over labor.'},
+  {p:'P6',q:'Plessy v. Ferguson (1896) established the legal principle that:',opts:['African Americans had full citizenship rights under the 14th Amendment','Racial segregation was constitutional if facilities were "separate but equal"','States could not disenfranchise African American voters','The federal government had the authority to enforce civil rights laws'],ans:1,exp:'"Separate but equal" became the legal foundation for Jim Crow segregation nationwide — not overturned until Brown v. Board (1954).'},
+  {p:'P7',q:'The main trigger for US entry into World War I was:',opts:['The assassination of Archduke Franz Ferdinand','The sinking of the Lusitania in 1915','The Zimmermann Telegram and Germany\'s unrestricted submarine warfare','Britain\'s naval blockade of Germany'],ans:2,exp:'The Zimmermann Telegram (Germany\'s secret offer to Mexico) combined with unrestricted submarine warfare directly triggered Wilson\'s request for a declaration of war.'},
+  {p:'P7',q:'How did the New Deal most fundamentally change the United States?',opts:['It ended the Great Depression completely','It permanently expanded federal responsibility for citizens\' economic welfare','It nationalized major industries and banks','It led to balanced budgets and reduced national debt'],ans:1,exp:'The New Deal established a lasting precedent: the federal government was responsible for citizens\' economic security — Social Security, banking regulation, and relief programs.'},
+  {p:'P7',q:'The 1920s represented a period of tension between modernism and tradition. Which pairing BEST illustrates this tension?',opts:['Harlem Renaissance and the Scopes Trial','The New Deal and Prohibition','Yellow Journalism and the Great Migration','The Lost Generation and the Palmer Raids'],ans:0,exp:'The Harlem Renaissance embodied cultural modernism while the Scopes Trial (1925) showed traditional/fundamentalist backlash — both occurring in the same decade.'},
+  {p:'P8&9',q:'The Truman Doctrine (1947) most directly resulted in:',opts:['Creation of the United Nations','A permanent end to American isolationism and commitment to containing communism','The Marshall Plan applying only to Western Europe','Immediate withdrawal of Soviet forces from Eastern Europe'],ans:1,exp:'Truman\'s commitment to aid Greece and Turkey marked a decisive end to isolationism, establishing containment as the cornerstone of Cold War foreign policy.'},
+  {p:'P8&9',q:'The Tet Offensive (1968) was most significant because it:',opts:['Was a major military victory for North Vietnam','Led to the immediate withdrawal of US troops','Shattered public confidence by proving the government had lied about the war\'s progress','Convinced Johnson to escalate the war'],ans:2,exp:'Tet was actually a military defeat for North Vietnam, but it proved the government\'s optimistic claims were false — the credibility gap destroyed public support.'},
+  {p:'P8&9',q:'Reaganomics was based on the economic theory that:',opts:['Increasing taxes on the wealthy would stimulate growth','Cutting taxes on businesses and the wealthy would create growth that "trickled down" to all Americans','The government should directly create jobs for unemployed workers','Deficit spending was the best way to stimulate the economy'],ans:1,exp:'"Trickle-down" economics argued tax cuts for the wealthy and deregulation would spur investment benefiting all. Critics noted it primarily benefited the wealthy and widened inequality.'},
+  {p:'P8&9',q:'The Civil Rights Acts of 1964, 1965, and 1968 together accomplished:',opts:['Immediate economic equality for African Americans','Legal prohibitions on discrimination in public places, voting, and housing','The elimination of de facto segregation in Northern cities','Full enforcement of the 15th Amendment without further legal obstacles'],ans:1,exp:'The three acts banned discrimination in public accommodations (1964), protected voting rights (1965), and prohibited housing discrimination (1968) — transforming legal (de jure) equality.'},
+];
+
+// ═══════════════════════════════
+// DATA — TIMELINES (expanded)
+// ═══════════════════════════════
+const TL_SETS={
+  'P3':{label:'Road to Revolution (P3)',events:[
+    {id:'r1',text:'Stamp Act passed',year:1765},{id:'r2',text:'Boston Massacre',year:1770},
+    {id:'r3',text:'Boston Tea Party',year:1773},{id:'r4',text:'First Continental Congress',year:1774},
+    {id:'r5',text:'Lexington & Concord',year:1775},{id:'r6',text:'Declaration of Independence',year:1776},
+    {id:'r7',text:'Battle of Saratoga',year:1777},{id:'r8',text:'Yorktown / Treaty of Paris',year:1783},
+  ]},
+  'P4':{label:'Early Republic (P4)',events:[
+    {id:'e1',text:'"Revolution of 1800" — Jefferson elected',year:1800},{id:'e2',text:'Marbury v. Madison',year:1803},
+    {id:'e3',text:'Louisiana Purchase',year:1803},{id:'e4',text:'War of 1812 begins',year:1812},
+    {id:'e5',text:'Missouri Compromise',year:1820},{id:'e6',text:'Monroe Doctrine',year:1823},
+    {id:'e7',text:'Jackson becomes president',year:1828},{id:'e8',text:'Trail of Tears',year:1838},
+  ]},
+  'P5':{label:'Civil War Era (P5)',events:[
+    {id:'c1',text:'Missouri Compromise',year:1820},{id:'c2',text:'Compromise of 1850',year:1850},
+    {id:'c3',text:'Kansas-Nebraska Act',year:1854},{id:'c4',text:'Dred Scott Decision',year:1857},
+    {id:'c5',text:'Lincoln elected; SC secedes',year:1860},{id:'c6',text:'Battle of Fort Sumter',year:1861},
+    {id:'c7',text:'Emancipation Proclamation',year:1863},{id:'c8',text:'Lee surrenders; Lincoln assassinated',year:1865},
+  ]},
+  'P7':{label:'America on the World Stage (P7)',events:[
+    {id:'w1',text:'Spanish-American War',year:1898},{id:'w2',text:'Roosevelt Corollary',year:1904},
+    {id:'w3',text:'US enters WWI',year:1917},{id:'w4',text:'Treaty of Versailles rejected',year:1919},
+    {id:'w5',text:'Stock Market Crash',year:1929},{id:'w6',text:'FDR\'s First Hundred Days',year:1933},
+    {id:'w7',text:'Pearl Harbor / US enters WWII',year:1941},{id:'w8',text:'Atomic bombing of Japan',year:1945},
+  ]},
+  'P8&9':{label:'Modern America (P8&9)',events:[
+    {id:'m1',text:'Truman Doctrine announced',year:1947},{id:'m2',text:'Korean War begins',year:1950},
+    {id:'m3',text:'Brown v. Board of Education',year:1954},{id:'m4',text:'Cuban Missile Crisis',year:1962},
+    {id:'m5',text:'Civil Rights Act passed',year:1964},{id:'m6',text:'Nixon visits China / Détente',year:1972},
+    {id:'m7',text:'Nixon resigns (Watergate)',year:1974},{id:'m8',text:'Berlin Wall falls',year:1989},
+  ]},
+};
+
+// ═══════════════════════════════
+// DATA — MATCH (expanded)
+// ═══════════════════════════════
+const MATCH_DATA={
+  'P1&2':[
+    {term:'Columbian Exchange',def:'Transfer of crops, animals & disease between Europe and Americas after 1492'},
+    {term:'Encomienda',def:'Spanish system granting Native labor to colonists in exchange for Christianization'},
+    {term:'Headright System',def:'50 acres granted to anyone sponsoring an indentured servant\'s voyage to Virginia'},
+    {term:'Salutary Neglect',def:'Britain\'s policy of loosely enforcing colonial laws, allowing self-governance'},
+    {term:'Bacon\'s Rebellion',def:'1676 revolt of freed indentured servants; led to shift toward African slavery'},
+    {term:'Great Awakening',def:'1730s–40s religious revival that challenged authority and inspired individualism'},
+  ],
+  'P3':[
+    {term:'Judicial Review',def:'Supreme Court\'s power to strike down unconstitutional laws (est. Marbury v. Madison)'},
+    {term:'Articles of Confederation',def:'First US government — too weak: no taxing power, no executive branch'},
+    {term:'3/5 Compromise',def:'Enslaved people counted as 3/5 of a person for taxation and representation'},
+    {term:'Federalist Papers',def:'Essays by Hamilton, Madison & Jay urging ratification of the Constitution'},
+    {term:'Checks & Balances',def:'Constitutional system where each branch can limit the powers of the others'},
+    {term:'Shays\' Rebellion',def:'1787 farmers\' revolt exposing the Articles\' weakness; boosted Federalists'},
+  ],
+  'P4':[
+    {term:'Market Revolution',def:'Early 19th-century industrialization via railroads, canals, steamboats, and factories'},
+    {term:'Missouri Compromise',def:'1820: Missouri slave state, Maine free state; 36°30\' line in Louisiana Purchase'},
+    {term:'Monroe Doctrine',def:'1823: Warned European powers against further colonization of the Western Hemisphere'},
+    {term:'Nullification',def:'Calhoun\'s theory that states could declare federal laws unconstitutional within their borders'},
+    {term:'Spoils System',def:'Jackson\'s practice of appointing party loyalists to government positions'},
+    {term:'Trail of Tears',def:'Forced removal of Cherokee from Georgia to Oklahoma; devastating effects'},
+  ],
+  'P5':[
+    {term:'Manifest Destiny',def:'Belief God intended Americans to expand across North America; coined 1845'},
+    {term:'Popular Sovereignty',def:'Settlers of a territory vote to decide whether slavery is allowed'},
+    {term:'Dred Scott Decision',def:'1857: Black people not citizens; Congress can\'t ban slavery anywhere'},
+    {term:'Emancipation Proclamation',def:'Freed enslaved people in Confederate states; changed moral purpose of war'},
+    {term:'Reconstruction',def:'1865–1877 federal effort to reintegrate South and protect freedmen\'s rights'},
+    {term:'Compromise of 1877',def:'Deal ending Reconstruction: Hayes as president; troops removed from South'},
+  ],
+  'P6':[
+    {term:'Vertical Integration',def:'Controlling all stages of production from raw materials to retail (Carnegie Steel)'},
+    {term:'Horizontal Integration',def:'Buying out competitors in the same industry to form a monopoly (Standard Oil)'},
+    {term:'Social Darwinism',def:'"Survival of the fittest" — justified inequality, laissez-faire, and imperialism'},
+    {term:'Plessy v. Ferguson',def:'1896: "Separate but equal" legalized racial segregation nationwide'},
+    {term:'Sherman Antitrust Act',def:'1890: First federal law outlawing monopolistic business practices'},
+    {term:'Populist Party',def:'1892: Farmers\' party demanding railroad nationalization, graduated income tax, silver'},
+  ],
+  'P7':[
+    {term:'Yellow Journalism',def:'Sensationalist reporting by Hearst/Pulitzer that helped provoke the Spanish-American War'},
+    {term:'Muckrakers',def:'Journalists who exposed corruption and social problems to drive Progressive reform'},
+    {term:'Isolationism',def:'US foreign policy of avoiding foreign entanglements; dominant after WWI; ended 1941'},
+    {term:'New Deal',def:'FDR\'s Relief, Recovery, Reform programs; dramatically expanded federal government\'s role'},
+    {term:'Lend-Lease',def:'1941: Allowed FDR to sell/lend war materials to Allies; effectively ended US neutrality'},
+    {term:'Manhattan Project',def:'Secret US atomic bomb program led by Oppenheimer; culminated in 1945 bombings'},
+  ],
+  'P8&9':[
+    {term:'Containment',def:'Truman\'s Cold War policy to prevent Soviet communism from spreading beyond its borders'},
+    {term:'McCarthyism',def:'1950s anti-communist witch hunt targeting government, military, and Hollywood'},
+    {term:'Credibility Gap',def:'Public distrust created by government lies about Vietnam war progress'},
+    {term:'Détente',def:'Nixon\'s policy easing Cold War tensions via diplomacy with China and USSR (1972)'},
+    {term:'Reaganomics',def:'"Trickle-down economics": tax cuts for wealthy + deregulation; widened wealth gap'},
+    {term:'PATRIOT Act',def:'Post-9/11 law expanding government surveillance; debated for civil liberties impact'},
+  ],
+};
+
+// ═══════════════════════════════
+// DATA — DBQ PROMPTS
+// ═══════════════════════════════
+const DBQ_PROMPTS=[
+  {p:'P3',prompt:'Evaluate the extent to which the American Revolution changed American society in the period 1775–1800.',kw:['change','continuity','society','revolution','equality','women','slavery','government','independence','rights'],tips:['Address DEGREE of change — avoid "some things changed and some didn\'t."','Consider what DID change (political structures, republican ideals) and what DIDN\'T (slavery, women\'s rights).','Contextualize with Enlightenment ideas or colonial grievances.']},
+  {p:'P5',prompt:'Evaluate the extent to which slavery was the primary cause of the Civil War.',kw:['slavery','sectionalism','states rights','economy','compromise','expansion','territory','cotton','tariff','secession'],tips:['Acknowledge slavery as central but complicate: tariffs, states\' rights, and economic differences all intersect WITH slavery.','Mention failed compromises (Missouri 1820, Compromise of 1850, Kansas-Nebraska 1854).','Complexity: argue all roads led back to slavery.']},
+  {p:'P7',prompt:'Evaluate the extent to which the New Deal represented a turning point in the relationship between the federal government and American citizens.',kw:['new deal','federal','relief','reform','recovery','social security','fdr','roosevelt','depression','laissez'],tips:['Argue it WAS a turning point: federal government accepted responsibility for economic welfare.','Complicate with continuity: Progressive Era set precedents; WWII (not the New Deal) fully ended the Depression.','Contextualize: Hoover\'s laissez-faire failure made FDR\'s expansion politically viable.']},
+  {p:'P8&9',prompt:'Evaluate the extent to which the Civil Rights Movement achieved its goals in the period 1954–1968.',kw:['civil rights','segregation','voting','equality','legislation','mlk','nonviolent','black power','resistance','progress'],tips:['Legal wins: Brown, Civil Rights Act 1964, Voting Rights Act 1965 — significant legal equality.','Limits: de facto segregation continued; economic inequality persisted; movement fragmented.','Compare MLK (nonviolent) vs. Malcolm X / Black Panthers (radical) — different visions of "goals."']},
+  {p:'P6',prompt:'Evaluate the extent to which industrialization in the period 1865–1900 benefited the United States.',kw:['industry','workers','railroad','monopoly','inequality','growth','capitalism','labor','immigration','gilded age'],tips:['Benefits: economic growth, technology, rising living standards for some, tied nation together.','Costs: worker exploitation, monopolies, inequality, displacement of farmers and Natives.','Strong thesis: take a clear position on WHO benefited and who was harmed.']},
+];
+
+// ═══════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════
+function initDash(){
+  const masteredCount=Object.values(stats.mastered).filter(v=>v>=2).length;
+  const total=FC_DATA.length;
+  const streak=stats.streak;
+  const avgQuiz=stats.quizHistory.length?Math.round(stats.quizHistory.reduce((s,q)=>s+q.pct,0)/stats.quizHistory.length):0;
+  // period mastery
+  const pmData={};
+  PERIODS.filter(p=>p!=='All').forEach(p=>{
+    const pCards=FC_DATA.filter(c=>c.p===p);
+    const pMastered=pCards.filter(c=>stats.mastered[c.q]>=2).length;
+    pmData[p]={total:pCards.length,mastered:pMastered,pct:pCards.length?Math.round(pMastered/pCards.length*100):0};
+  });
+  const pmHTML=Object.entries(pmData).map(([p,d])=>`
+    <div class="pm-row">
+      <div class="pm-label">${p}</div>
+      <div class="pm-bar-wrap"><div class="pm-bar" style="width:${d.pct}%"></div></div>
+      <div class="pm-pct">${d.pct}%</div>
+    </div>`).join('');
+  const histHTML=stats.quizHistory.length?stats.quizHistory.slice(0,10).map(h=>`
+    <div class="quiz-history-row">
+      <span>${h.date} · <span class="badge badge-blue">${h.period}</span></span>
+      <span style="font-weight:600;color:${h.pct>=70?'var(--green)':h.pct>=50?'var(--accent)':'var(--red)'}">${h.pct}%</span>
+    </div>`).join(''):'<div style="color:var(--text-muted);font-size:.85rem;padding:12px">No quizzes taken yet.</div>';
+  document.getElementById('dash-content').innerHTML=`
+    <div class="dash-grid">
+      <div class="dash-card"><div class="dash-card-val">${masteredCount}/${total}</div><div class="dash-card-label">Flashcards Mastered</div>
+        <div style="margin-top:10px"><div class="prog-wrap"><div class="prog-bar" style="width:${Math.round(masteredCount/total*100)}%;background:var(--green)"></div></div><div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">${Math.round(masteredCount/total*100)}% complete</div></div>
+      </div>
+      <div class="dash-card"><div class="dash-card-val">${avgQuiz}%</div><div class="dash-card-label">Average Quiz Score</div><div style="font-size:.8rem;color:var(--text-muted);margin-top:6px">Across ${stats.quizHistory.length} quiz${stats.quizHistory.length!==1?'es':''}</div></div>
+      <div class="dash-card"><div style="margin-bottom:10px"><span class="streak-badge">🔥 ${streak.count} day streak</span></div><div class="dash-card-label">Study Streak</div><div style="font-size:.78rem;color:var(--text-muted);margin-top:6px">Keep it up — study daily!</div></div>
+    </div>
+    <div class="card" style="margin-bottom:20px"><h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:16px;color:var(--blue-dark)">Mastery by Period</h3><div class="period-mastery">${pmHTML}</div></div>
+    <div class="card"><h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:14px;color:var(--blue-dark)">Recent Quiz History</h3><div class="quiz-history">${histHTML}</div></div>
+    <div style="margin-top:16px;text-align:right"><button class="btn btn-secondary btn-sm" onclick="if(confirm('Reset all progress?')){stats={mastered:{},srWeights:{},quizHistory:[],streak:{lastDate:\'\',count:0}};saveStats();initDash();}">Reset All Progress</button></div>`;
+}
+
+// ═══════════════════════════════
+// FLASHCARDS — SPACED REPETITION
+// ═══════════════════════════════
+let fcPool=[];let fcIdx=0;let fcPeriod='All';
+
+function getWeight(card){
+  const w=stats.srWeights[card.q];
+  if(!w)return 3;
+  return Math.max(1,5-w);// harder = more repeats
+}
+
+function buildFCPool(period){
+  let base=period==='All'?[...FC_DATA]:FC_DATA.filter(c=>c.p===period);
+  // Weight: missed cards appear more, mastered less
+  let pool=[];
+  base.forEach(c=>{
+    const reps=getWeight(c);
+    for(let i=0;i<reps;i++) pool.push(c);
+  });
+  return shuffle(pool);
+}
+
+function initFC(){
+  buildFilter('fc-filter',p=>{fcPeriod=p;fcIdx=0;fcPool=buildFCPool(p);document.getElementById('fc-wrap').classList.remove('flipped');renderFC();});
+  fcPool=buildFCPool(fcPeriod);renderFC();
+}
+
+function renderFC(){
+  if(!fcPool.length)return;
+  const c=fcPool[fcIdx];
+  document.getElementById('fc-front').textContent=c.q;
+  document.getElementById('fc-back').textContent=c.a;
+  document.getElementById('fc-pbadge').textContent=c.p;
+  document.getElementById('fc-counter').textContent=`Card ${fcIdx+1} of ${fcPool.length}`;
+  const total=fcPeriod==='All'?FC_DATA.length:FC_DATA.filter(x=>x.p===fcPeriod).length;
+  const mastered=FC_DATA.filter(c=>stats.mastered[c.q]>=2).length;
+  document.getElementById('fc-bar').style.width=Math.round(mastered/FC_DATA.length*100)+'%';
+  document.getElementById('fc-mastered').textContent=`✓ ${mastered} / ${FC_DATA.length} mastered`;
+  document.getElementById('fc-wrap').classList.remove('flipped');
+}
+
+function flipCard(){document.getElementById('fc-wrap').classList.toggle('flipped');}
+function nextCard(){fcIdx=(fcIdx+1)%fcPool.length;renderFC();}
+function prevCard(){fcIdx=(fcIdx-1+fcPool.length)%fcPool.length;renderFC();}
+function shuffleFC(){fcPool=buildFCPool(fcPeriod);fcIdx=0;renderFC();}
+
+function markCard(correct){
+  const c=fcPool[fcIdx];
+  if(!stats.srWeights[c.q]) stats.srWeights[c.q]=0;
+  if(correct){stats.srWeights[c.q]=Math.min(5,stats.srWeights[c.q]+1);if(!stats.mastered[c.q])stats.mastered[c.q]=0;stats.mastered[c.q]=Math.min(5,stats.mastered[c.q]+1);}
+  else{stats.srWeights[c.q]=Math.max(0,stats.srWeights[c.q]-1);}
+  saveStats();nextCard();
+}
+
+// ═══════════════════════════════
+// QUIZ
+// ═══════════════════════════════
+let qQ=[],qIdx=0,qScore=0,qAnswered=false,qTimer=null,qTime=30,qPeriod='All';
+
+function initQuiz(){
+  buildFilter('quiz-filter',p=>{qPeriod=p;startQuiz();});
+  startQuiz();
+}
+
+function startQuiz(){
+  clearInterval(qTimer);
+  const pool=qPeriod==='All'?QUIZ:QUIZ.filter(q=>q.p===qPeriod);
+  qQ=shuffle([...pool]).slice(0,Math.min(10,pool.length));
+  qIdx=0;qScore=0;renderQQ();
+}
+
+function renderQQ(){
+  clearInterval(qTimer);
+  if(qIdx>=qQ.length){renderQResults();return;}
+  qAnswered=false;qTime=30;
+  const q=qQ[qIdx];
+  document.getElementById('quiz-area').innerHTML=`
+    <div class="card">
+      <div class="quiz-header">
+        <span style="font-size:.85rem;color:var(--text-muted)">Q ${qIdx+1}/${qQ.length} &nbsp;<span class="badge badge-blue">${q.p}</span></span>
+        <span class="quiz-timer" id="qtimer">⏱ ${qTime}s</span>
+      </div>
+      <div class="prog-wrap" style="margin-bottom:18px"><div class="prog-bar" id="q-prog" style="width:${qIdx/qQ.length*100}%;background:var(--blue)"></div></div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="quiz-options">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="pickAnswer(${i})" id="qopt${i}"><span class="opt-letter">${'ABCD'[i]}</span>${o}</button>`).join('')}</div>
+      <div class="quiz-exp" id="qexp">${q.exp}</div>
+      <div id="qnext" style="display:none;justify-content:flex-end;margin-top:16px"><button class="btn btn-primary" onclick="nextQ()">${qIdx+1<qQ.length?'Next →':'See Results →'}</button></div>
+    </div>`;
+  qTimer=setInterval(()=>{qTime--;const el=document.getElementById('qtimer');if(!el){clearInterval(qTimer);return;}el.textContent=`⏱ ${qTime}s`;if(qTime<=10)el.classList.add('warning');if(qTime<=0){clearInterval(qTimer);if(!qAnswered)autoFail();}},1000);
+}
+
+function autoFail(){qAnswered=true;const q=qQ[qIdx];document.querySelectorAll('.quiz-opt').forEach((o,i)=>{o.disabled=true;if(i===q.ans)o.classList.add('correct');});document.getElementById('qexp').classList.add('show');document.getElementById('qnext').style.display='flex';}
+
+function pickAnswer(i){
+  if(qAnswered)return;clearInterval(qTimer);qAnswered=true;
+  const q=qQ[qIdx];const ok=i===q.ans;if(ok)qScore++;
+  document.querySelectorAll('.quiz-opt').forEach((o,j)=>{o.disabled=true;if(j===q.ans)o.classList.add('correct');else if(j===i&&!ok)o.classList.add('wrong');});
+  document.getElementById('qexp').classList.add('show');document.getElementById('qnext').style.display='flex';
+}
+
+function nextQ(){qIdx++;renderQQ();}
+
+function renderQResults(){
+  clearInterval(qTimer);
+  const pct=Math.round(qScore/qQ.length*100);
+  recordQuiz(qPeriod,qScore,qQ.length);
+  const grade=pct>=90?'Excellent! 🎉':pct>=70?'Good work! 👍':pct>=50?'Keep studying 📚':'More review needed 💪';
+  if(pct>=70) launchConfetti();
+  document.getElementById('quiz-area').innerHTML=`
+    <div class="card quiz-results">
+      <div class="quiz-score-big">${pct}%</div>
+      <div style="color:var(--text-muted);margin-bottom:20px">${qScore}/${qQ.length} correct · ${grade}</div>
+      <div class="prog-wrap" style="max-width:280px;margin:0 auto 24px"><div class="prog-bar" style="width:${pct}%;background:${pct>=70?'var(--green)':pct>=50?'var(--accent)':'var(--red)'}"></div></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="startQuiz()">Try Again</button>
+        <button class="btn btn-secondary" onclick="showSection('dashboard')">View Dashboard</button>
+        <button class="btn btn-secondary" onclick="showSection('flashcards')">Review Flashcards</button>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════
+// TIMELINE
+// ═══════════════════════════════
+let tlKey='P3',tlDrag=null;
+function initTL(){buildFilter('tl-filter',p=>{const k=['P3','P4','P5','P7','P8&9'].includes(p)?p:'P3';tlKey=k;loadTL(k);});loadTL('P3');}
+function loadTL(key){
+  tlKey=key;const s=TL_SETS[key];if(!s)return;
+  const sh=shuffle([...s.events]);
+  document.getElementById('tl-area').innerHTML=`
+    <div style="font-weight:600;color:var(--blue-dark);margin-bottom:10px">${s.label}</div>
+    <div class="tl-instructions">Drag the events below and drop them into the correct chronological order (1 = earliest).</div>
+    <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px">Events to sort:</div>
+    <div class="tl-pool" id="tlpool">${sh.map(e=>`<div class="tl-event" draggable="true" data-id="${e.id}" data-year="${e.year}">${e.text}</div>`).join('')}</div>
+    <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px">Drop in order:</div>
+    <div class="tl-slots">${s.events.map((_,i)=>`<div class="tl-slot"><div class="slot-num">${i+1}</div><div class="slot-drop" id="tslot${i}" ondragover="tlOver(event)" ondrop="tlDrop(event,${i})">Drop here</div></div>`).join('')}</div>
+    <div style="display:flex;gap:10px;margin-top:18px"><button class="btn btn-primary" onclick="checkTL()">Check Order</button><button class="btn btn-secondary" onclick="loadTL('${key}')">Reset</button></div>
+    <div id="tlresult" style="margin-top:14px"></div>`;
+  document.querySelectorAll('.tl-event').forEach(el=>{
+    el.addEventListener('dragstart',e=>{tlDrag=el;setTimeout(()=>el.classList.add('dragging'),0);e.dataTransfer.effectAllowed='move';});
+    el.addEventListener('dragend',()=>el.classList.remove('dragging'));
+  });
+}
+function tlOver(e){e.preventDefault();e.currentTarget.classList.add('drag-over');}
+function tlDrop(e,i){
+  e.preventDefault();const slot=document.getElementById('tslot'+i);slot.classList.remove('drag-over');
+  if(!tlDrag)return;
+  const ex=slot.querySelector('.tl-event');if(ex)document.getElementById('tlpool').appendChild(ex);
+  slot.textContent='';slot.classList.add('filled');tlDrag.draggable=false;slot.appendChild(tlDrag);tlDrag=null;
+}
+function checkTL(){
+  const s=TL_SETS[tlKey];const sorted=[...s.events].sort((a,b)=>a.year-b.year);let ok=0;
+  s.events.forEach((_,i)=>{const sl=document.getElementById('tslot'+i);const ev=sl.querySelector('.tl-event');sl.classList.remove('correct','wrong');if(ev&&ev.dataset.id===sorted[i].id){sl.classList.add('correct');ok++;}else if(ev)sl.classList.add('wrong');});
+  const pct=Math.round(ok/sorted.length*100);
+  if(pct===100)launchConfetti();
+  document.getElementById('tlresult').innerHTML=`<div style="padding:12px 16px;border-radius:10px;background:${pct===100?'var(--green-light)':'var(--blue-light)'};border:1.5px solid ${pct===100?'var(--green)':'var(--blue)'};font-weight:600;color:${pct===100?'var(--green)':'var(--blue)'}">${pct===100?'🎉 Perfect!':'📊 '+ok+'/'+sorted.length+' correct — green = right, red = wrong.'}</div>`;
+}
+
+// ═══════════════════════════════
+// MATCH GAME
+// ═══════════════════════════════
+let mPeriod='P1&2',mSel=null,mSide=null,mMatched=new Set(),mAttempts=0,mTimer=null,mElapsed=0;
+function initMatch(){buildFilter('match-filter',p=>{const valid=Object.keys(MATCH_DATA);mPeriod=valid.includes(p)?p:valid[0];startMatch();});startMatch();}
+function startMatch(){
+  clearInterval(mTimer);mSel=null;mSide=null;mMatched=new Set();mAttempts=0;mElapsed=0;
+  const set=MATCH_DATA[mPeriod]||MATCH_DATA['P1&2'];
+  const terms=shuffle(set.map(s=>s.term));
+  const defs=shuffle(set.map(s=>s.def));
+  mTimer=setInterval(()=>{mElapsed++;const el=document.getElementById('melapsed');if(el)el.textContent=mElapsed+'s';},1000);
+  document.getElementById('match-area').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+      <div class="match-stats">
+        <div class="match-stat"><div class="match-stat-val" id="mmatch">0</div><div class="match-stat-label">Matched</div></div>
+        <div class="match-stat"><div class="match-stat-val" id="melapsed">0s</div><div class="match-stat-label">Time</div></div>
+        <div class="match-stat"><div class="match-stat-val" id="mattempts">0</div><div class="match-stat-label">Attempts</div></div>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="startMatch()">New Game</button>
+    </div>
+    <div class="match-board">
+      <div><div class="match-col-label">Terms</div><div class="match-grid">${terms.map(t=>`<div class="match-card" onclick="selMatch('term',${JSON.stringify(t)},this)">${t}</div>`).join('')}</div></div>
+      <div><div class="match-col-label">Definitions</div><div class="match-grid">${defs.map(d=>`<div class="match-card" onclick="selMatch('def',${JSON.stringify(d)},this)">${d}</div>`).join('')}</div></div>
+    </div>
+    <div id="mresult" style="margin-top:14px"></div>`;
+}
+function selMatch(side,val,el){
+  if(el.classList.contains('matched'))return;
+  const set=MATCH_DATA[mPeriod]||MATCH_DATA['P1&2'];
+  if(mSel===null){mSel=val;mSide=side;el.classList.add('selected');}
+  else{
+    if(side===mSide){document.querySelectorAll('.match-card.selected').forEach(c=>c.classList.remove('selected'));mSel=val;mSide=side;el.classList.add('selected');return;}
+    mAttempts++;document.getElementById('mattempts').textContent=mAttempts;
+    const term=side==='def'?mSel:val;const def=side==='def'?val:mSel;
+    const pair=set.find(s=>s.term===term&&s.def===def);
+    if(pair){
+      mMatched.add(term);
+      document.querySelectorAll('.match-card.selected').forEach(c=>{c.classList.remove('selected');c.classList.add('matched');});
+      el.classList.add('matched');
+      document.getElementById('mmatch').textContent=mMatched.size;
+      if(mMatched.size===set.length){clearInterval(mTimer);launchConfetti();document.getElementById('mresult').innerHTML=`<div style="padding:12px 16px;border-radius:10px;background:var(--green-light);border:1.5px solid var(--green);font-weight:600;color:var(--green)">🎉 All matched! Time: ${mElapsed}s · Attempts: ${mAttempts}</div>`;}
+    }else{
+      el.classList.add('wrong-flash');document.querySelectorAll('.match-card.selected').forEach(c=>c.classList.add('wrong-flash'));
+      setTimeout(()=>{document.querySelectorAll('.match-card.wrong-flash').forEach(c=>c.classList.remove('wrong-flash','selected'));},700);
+    }
+    mSel=null;mSide=null;
+  }
+}
+
+// ═══════════════════════════════
+// DBQ / LEQ
+// ═══════════════════════════════
+let dbqIdx=0;
+function initDBQ(){renderDBQ();}
+function renderDBQ(){
+  const p=DBQ_PROMPTS[dbqIdx];
+  document.getElementById('dbq-area').innerHTML=`
+    <div class="thesis-prompt"><div class="prompt-label">📜 ${p.p} · Prompt ${dbqIdx+1} of ${DBQ_PROMPTS.length}</div><div class="prompt-text">${p.prompt}</div></div>
+    <div style="margin-bottom:10px"><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:7px">Write your thesis statement:</label><textarea class="thesis-input" id="thesistext" placeholder="A strong thesis makes a historically defensible claim with a line of reasoning…"></textarea></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" onclick="analyzeThesis()">Analyze My Thesis</button><button class="btn btn-secondary" onclick="document.getElementById('thesistext').value='';document.getElementById('thfeedback').innerHTML=''">Clear</button></div>
+    <div id="thfeedback"></div>
+    <div class="thesis-tips"><div class="thesis-tips-title">💡 Tips for this prompt:</div><ul>${p.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+    <div style="display:flex;gap:10px;margin-top:16px"><button class="btn btn-secondary btn-sm" onclick="dbqIdx=(dbqIdx-1+${DBQ_PROMPTS.length})%${DBQ_PROMPTS.length};renderDBQ()">← Prev Prompt</button><button class="btn btn-secondary btn-sm" onclick="dbqIdx=(dbqIdx+1)%${DBQ_PROMPTS.length};renderDBQ()">Next Prompt →</button></div>`;
+}
+function analyzeThesis(){
+  const text=document.getElementById('thesistext').value.trim();
+  if(!text||text.length<15){document.getElementById('thfeedback').innerHTML='<div style="color:var(--red);margin-top:10px;font-size:.875rem">Please write a thesis before analyzing.</div>';return;}
+  const p=DBQ_PROMPTS[dbqIdx];const lower=text.toLowerCase();const wc=text.split(/\s+/).length;
+  const checks={
+    claim:{name:'Historically Defensible Claim',pass:wc>=15&&p.kw.some(k=>lower.includes(k)),pass_msg:'Your thesis addresses the prompt topic.',fail_msg:'Make sure your thesis directly responds to the prompt with specific historical content.'},
+    reasoning:{name:'Line of Reasoning',pass:lower.includes('because')||lower.includes('due to')||lower.includes('led to')||lower.includes('caused')||lower.includes('therefore')||lower.includes('since')||lower.includes('as a result'),pass_msg:'Your thesis explains WHY with a reasoning clause.',fail_msg:'Add a "because" or "due to" clause explaining your reasoning.'},
+    complexity:{name:'Complexity / Nuance',pass:lower.includes('however')||lower.includes('although')||lower.includes('while')||lower.includes('despite')||lower.includes('yet')||lower.includes('even though')||lower.includes('on the other hand'),pass_msg:'Your thesis acknowledges complexity or counterargument.',fail_msg:'Add "although," "while," or "however" to acknowledge a counterpoint.'},
+    specificity:{name:'Specific Evidence',pass:p.kw.filter(k=>lower.includes(k)).length>=2,pass_msg:`Referenced ${p.kw.filter(k=>lower.includes(k)).length} key topic terms.`,fail_msg:'Be more specific — reference key events, people, or concepts from the period.'},
+    length:{name:'Adequate Development',pass:wc>=25,pass_msg:`Good length (${wc} words).`,fail_msg:`Too brief (${wc} words) — aim for 25–40+ words.`},
+  };
+  const passed=Object.values(checks).filter(c=>c.pass).length;const pct=Math.round(passed/Object.keys(checks).length*100);
+  document.getElementById('thfeedback').innerHTML=`
+    <div style="margin-top:18px">
+      <div style="font-weight:700;font-size:.95rem;margin-bottom:10px">Thesis Analysis: <span style="color:${pct>=80?'var(--green)':pct>=60?'var(--accent)':'var(--red)'}">${pct}% — ${pct>=80?'Strong ✓':pct>=60?'Developing':'Needs Work'}</span></div>
+      <div class="thesis-rubric">${Object.values(checks).map(c=>`<div class="rubric-item ${c.pass?'pass':'fail'}"><div class="rubric-icon">${c.pass?'✅':'❌'}</div><div class="rubric-name">${c.name}</div><div class="rubric-feedback">${c.pass?c.pass_msg:c.fail_msg}</div></div>`).join('')}</div>
+      ${pct<80?`<div style="margin-top:14px;padding:12px;background:var(--blue-light);border-radius:10px;font-size:.86rem;color:var(--blue-dark)"><strong>Model structure:</strong> "Although [counterpoint], [your argument] because [reason 1], [reason 2], and [reason 3]."</div>`:''}
+    </div>`;
+}
+
+// ═══════════════════════════════
+// CONNECTIONS WEB
+// ═══════════════════════════════
+const NODES=[
+  {id:'bacon',label:"Bacon's\nRebellion",x:80,y:120,color:'#7c3aed',period:'P1&2',threads:['slavery','labor']},
+  {id:'slavery',label:'Atlantic\nSlavery',x:200,y:60,color:'#dc2626',period:'P1&2',threads:['slavery']},
+  {id:'revolution',label:'American\nRevolution',x:360,y:80,color:'#1e6bb8',period:'P3',threads:['government','reform']},
+  {id:'constitution',label:'US\nConstitution',x:500,y:140,color:'#1e6bb8',period:'P3',threads:['government']},
+  {id:'marbury',label:'Marbury v.\nMadison',x:640,y:80,color:'#0f4c8a',period:'P4',threads:['government']},
+  {id:'missouri',label:'Missouri\nCompromise',x:200,y:200,color:'#dc2626',period:'P4',threads:['slavery']},
+  {id:'marketrev',label:'Market\nRevolution',x:360,y:220,color:'#f0a500',period:'P4',threads:['labor','economy']},
+  {id:'reform',label:'Age of\nReform',x:500,y:280,color:'#16a34a',period:'P4',threads:['reform']},
+  {id:'manifest',label:'Manifest\nDestiny',x:100,y:340,color:'#f0a500',period:'P5',threads:['expansion']},
+  {id:'dredscott',label:'Dred Scott\nDecision',x:260,y:320,color:'#dc2626',period:'P5',threads:['slavery']},
+  {id:'civilwar',label:'Civil\nWar',x:400,y:360,color:'#dc2626',period:'P5',threads:['slavery','government']},
+  {id:'reconstruction',label:'Reconstruction',x:560,y:340,color:'#7c3aed',period:'P5',threads:['slavery','government','reform']},
+  {id:'jimcrow',label:'Jim Crow /\nPlessy',x:680,y:280,color:'#dc2626',period:'P6',threads:['slavery','reform']},
+  {id:'gilded',label:'Gilded Age\nIndustry',x:160,y:460,color:'#f0a500',period:'P6',threads:['labor','economy']},
+  {id:'progressivism',label:'Progressive\nEra',x:340,y:480,color:'#16a34a',period:'P7',threads:['reform','labor']},
+  {id:'wwi',label:'World\nWar I',x:520,y:460,color:'#1e6bb8',period:'P7',threads:['government']},
+  {id:'newdeal',label:'New\nDeal',x:100,y:560,color:'#16a34a',period:'P7',threads:['government','labor','economy']},
+  {id:'wwii',label:'World\nWar II',x:300,y:560,color:'#1e6bb8',period:'P7',threads:['government']},
+  {id:'coldwar',label:'Cold\nWar',x:500,y:540,color:'#0f4c8a',period:'P8&9',threads:['government']},
+  {id:'civilrights',label:'Civil Rights\nMovement',x:680,y:480,color:'#16a34a',period:'P8&9',threads:['slavery','reform']},
+  {id:'vietnam',label:'Vietnam\nWar',x:160,y:640,color:'#dc2626',period:'P8&9',threads:['government']},
+  {id:'reagan',label:'Reagan\nRevolution',x:400,y:640,color:'#f0a500',period:'P8&9',threads:['government','economy']},
+  {id:'9_11',label:'9/11 &\nWar on Terror',x:620,y:620,color:'#dc2626',period:'P8&9',threads:['government']},
+];
+
+const EDGES=[
+  ['bacon','slavery','slavery'],['slavery','missouri','slavery'],['missouri','dredscott','slavery'],
+  ['dredscott','civilwar','slavery'],['civilwar','reconstruction','slavery'],['reconstruction','jimcrow','slavery'],
+  ['jimcrow','civilrights','slavery'],
+  ['revolution','constitution','government'],['constitution','marbury','government'],['marbury','newdeal','government'],
+  ['newdeal','coldwar','government'],['coldwar','vietnam','government'],['vietnam','reagan','government'],
+  ['reagan','9_11','government'],['civilwar','reconstruction','government'],
+  ['bacon','marketrev','labor'],['marketrev','gilded','labor'],['gilded','progressivism','labor'],
+  ['progressivism','newdeal','labor'],
+  ['reform','progressivism','reform'],['progressivism','civilrights','reform'],['reconstruction','civilrights','reform'],
+  ['manifest','civilwar','expansion'],['marketrev','manifest','expansion'],
+  ['wwi','wwii','government'],['wwii','coldwar','government'],['wwii','newdeal','economy'],
+  ['gilded','progressivism','economy'],['marketrev','gilded','economy'],['reagan','9_11','economy'],
+];
+
+const THREAD_COLORS={slavery:'#dc2626',government:'#1e6bb8',reform:'#16a34a',labor:'#f0a500',expansion:'#7c3aed',economy:'#0f4c8a'};
+let connFilter='all',connSelected=null;
+let canvasW=0,canvasH=580;
+
+function initConn(){
+  renderConnLegend();
+  drawConn();
+  const canvas=document.getElementById('connections-canvas');
+  canvas.onclick=e=>{
+    const rect=canvas.getBoundingClientRect();
+    const scaleX=canvasW/rect.width;const scaleY=canvasH/rect.height;
+    const mx=(e.clientX-rect.left)*scaleX;const my=(e.clientY-rect.top)*scaleY;
+    let hit=null;
+    NODES.forEach(n=>{const dx=mx-n.x*canvasW/760;const dy=my-n.y;if(Math.sqrt(dx*dx+dy*dy)<32)hit=n.id;});
+    connSelected=connSelected===hit?null:hit;drawConn();
+  };
+}
+
+function renderConnLegend(){
+  document.getElementById('conn-legend').innerHTML=Object.entries(THREAD_COLORS).map(([k,v])=>`<div class="conn-legend-item"><div class="conn-legend-dot" style="background:${v}"></div>${k.charAt(0).toUpperCase()+k.slice(1)} Thread</div>`).join('');
+}
+
+function filterConn(f){connFilter=f;connSelected=null;drawConn();}
+function resetConnView(){connFilter='all';connSelected=null;drawConn();}
+
+function drawConn(){
+  const canvas=document.getElementById('connections-canvas');
+  if(!canvas)return;
+  canvasW=canvas.parentElement.clientWidth||760;
+  canvas.width=canvasW;canvas.height=canvasH;
+  const ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,canvasW,canvasH);
+  const scale=canvasW/760;
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+
+  // Background
+  ctx.fillStyle=isDark?'#1e293b':'#f7f9fc';
+  ctx.fillRect(0,0,canvasW,canvasH);
+
+  // Draw edges
+  EDGES.forEach(([a,b,thread])=>{
+    const na=NODES.find(n=>n.id===a);const nb=NODES.find(n=>n.id===b);
+    if(!na||!nb)return;
+    const showThread=connFilter==='all'||thread===connFilter;
+    const showSelected=connSelected&&(na.id===connSelected||nb.id===connSelected);
+    if(!showThread&&!showSelected)return;
+    const alpha=showSelected?1:connFilter==='all'?0.35:0.6;
+    ctx.beginPath();
+    ctx.moveTo(na.x*scale,na.y);ctx.lineTo(nb.x*scale,nb.y);
+    ctx.strokeStyle=THREAD_COLORS[thread]+(Math.round(alpha*255).toString(16).padStart(2,'0'));
+    ctx.lineWidth=showSelected?3:1.5;
+    ctx.stroke();
+  });
+
+  // Draw nodes
+  NODES.forEach(n=>{
+    const nx=n.x*scale;const ny=n.y;
+    const isSelected=connSelected===n.id;
+    const isConnected=connSelected&&EDGES.some(([a,b])=>(a===connSelected&&b===n.id)||(b===connSelected&&a===n.id));
+    const dimmed=connSelected&&!isSelected&&!isConnected;
+
+    ctx.beginPath();ctx.arc(nx,ny,isSelected?34:28,0,Math.PI*2);
+    ctx.fillStyle=n.color+(dimmed?'44':'cc');
+    ctx.fill();
+    if(isSelected){ctx.strokeStyle=isDark?'#f1f5f9':'#1a202c';ctx.lineWidth=3;ctx.stroke();}
+
+    // Label
+    ctx.fillStyle=dimmed?'#94a3b8':(isDark?'#f1f5f9':'#1a202c');
+    ctx.font=`${isSelected?'700 ':'500 '}${isSelected?12:11}px DM Sans,sans-serif`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    const lines=n.label.split('\n');
+    lines.forEach((line,i)=>ctx.fillText(line,nx,ny+(i-(lines.length-1)/2)*14));
+
+    // Period badge
+    ctx.fillStyle=isDark?'#334155':'#e2e8f0';
+    ctx.fillRect(nx-18,ny+32,36,13);
+    ctx.fillStyle='#64748b';ctx.font='9px DM Sans,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(n.period,nx,ny+38);
+  });
+}
+
+window.addEventListener('resize',()=>{if(document.getElementById('connections').classList.contains('active'))drawConn();});
+
+// INIT on load
+window.onload=()=>{
+  if(FC_DATA.length){
+    fcPool=buildFCPool('All');
+    document.getElementById('fc-front').textContent=fcPool[0]?.q||'';
+    document.getElementById('fc-back').textContent=fcPool[0]?.a||'';
+    document.getElementById('fc-pbadge').textContent=fcPool[0]?.p||'';
+    document.getElementById('fc-counter').textContent=`Card 1 of ${fcPool.length}`;
+  }
+  applyDark();
+};
+</script>
+</body>
+</html>
