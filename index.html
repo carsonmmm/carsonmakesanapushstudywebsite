@@ -306,6 +306,66 @@ textarea.thesis-input:focus{border-color:var(--blue)}
 .ai-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .ai-suggest{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif;color:var(--text)}
 .ai-suggest:hover{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
+/* ── NOTES ── */
+.notes-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.notes-tab{padding:6px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--text-muted);transition:all .15s}
+.notes-tab.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.notes-editor{width:100%;min-height:320px;padding:16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;resize:vertical;outline:none;transition:border .15s;background:var(--surface);color:var(--text);line-height:1.7}
+.notes-editor:focus{border-color:var(--blue)}
+.notes-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.notes-saved{font-size:.75rem;color:var(--green);opacity:0;transition:opacity .3s}
+.notes-saved.show{opacity:1}
+.notes-word-count{font-size:.75rem;color:var(--text-muted)}
+
+/* ── MY CARDS ── */
+.mycard-form{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;box-shadow:var(--shadow)}
+.mycard-form input,.mycard-form textarea,.mycard-form select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.875rem;background:var(--surface);color:var(--text);outline:none;transition:border .15s;margin-bottom:10px}
+.mycard-form input:focus,.mycard-form textarea:focus,.mycard-form select:focus{border-color:var(--blue)}
+.mycard-form textarea{min-height:80px;resize:vertical}
+.mycard-form label{font-size:.8rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:4px}
+.mycards-list{display:flex;flex-direction:column;gap:10px}
+.mycard-item{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:start;gap:12px;box-shadow:var(--shadow)}
+.mycard-q{font-weight:600;font-size:.875rem;margin-bottom:4px}
+.mycard-a{font-size:.82rem;color:var(--text-muted)}
+.mycard-meta{font-size:.72rem;color:var(--blue);font-weight:600;margin-top:6px}
+.mycard-del{background:none;border:none;cursor:pointer;color:var(--red);font-size:1.1rem;padding:2px;flex-shrink:0}
+
+/* ── VIDEOS ── */
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.vid-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .2s;cursor:pointer}
+.vid-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
+.vid-thumb{width:100%;height:170px;object-fit:cover;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--text-muted)}
+.vid-thumb-img{width:100%;height:170px;object-fit:cover}
+.vid-body{padding:14px}
+.vid-channel{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px}
+.vid-title{font-weight:600;font-size:.875rem;color:var(--text);margin-bottom:6px;line-height:1.4}
+.vid-desc{font-size:.78rem;color:var(--text-muted);line-height:1.4}
+.vid-period{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.7rem;font-weight:700;background:var(--blue-light);color:var(--blue);margin-top:8px}
+
+/* ── SEARCH ── */
+.search-input-wrap{position:relative;margin-bottom:20px}
+.search-input{width:100%;padding:14px 20px 14px 48px;border:2px solid var(--border);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:1rem;background:var(--surface);color:var(--text);outline:none;transition:border .15s}
+.search-input:focus{border-color:var(--blue)}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.1rem;color:var(--text-muted)}
+.search-results{display:flex;flex-direction:column;gap:8px}
+.search-result{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow);cursor:pointer;transition:all .15s}
+.search-result:hover{border-color:var(--blue);background:var(--blue-light)}
+.search-result-type{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:4px}
+.search-result-title{font-weight:600;font-size:.9rem;margin-bottom:3px}
+.search-result-preview{font-size:.82rem;color:var(--text-muted)}
+.search-highlight{background:var(--accent-light);color:var(--accent);border-radius:3px;padding:0 2px;font-weight:700}
+.search-empty{text-align:center;padding:48px;color:var(--text-muted)}
+.search-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sf-btn{padding:5px 13px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.sf-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ── KEYBOARD SHORTCUT HINT ── */
+.kb-hint{position:fixed;bottom:16px;right:16px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.75rem;color:var(--text-muted);box-shadow:var(--shadow-lg);z-index:50;opacity:0;transition:opacity .3s;pointer-events:none}
+.kb-hint.show{opacity:1}
+kbd{display:inline-block;padding:1px 6px;border:1px solid var(--border);border-radius:4px;font-size:.72rem;font-family:monospace;background:var(--surface2);color:var(--text)}
+
+/* ── EXPORT BUTTON ── */
+.export-btn-wrap{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
@@ -327,6 +387,10 @@ textarea.thesis-input:focus{border-color:var(--blue)}
     <button class="nav-tab" onclick="showSection('compare')">⚡ Compare</button>
     <button class="nav-tab" onclick="showSection('cheatsheet')">📄 Cheat Sheet</button>
     <button class="nav-tab" onclick="showSection('aitutor')">🤖 AI Tutor</button>
+    <button class="nav-tab" onclick="showSection('notes')">📓 Notes</button>
+    <button class="nav-tab" onclick="showSection('mycards')">✏️ My Cards</button>
+    <button class="nav-tab" onclick="showSection('videos')">🎬 Videos</button>
+    <button class="nav-tab" onclick="showSection('search')">🔍 Search</button>
   </div>
   <div class="nav-right">
     <button class="icon-btn" onclick="toggleDark()" title="Toggle dark mode" id="dark-btn">🌙</button>
@@ -355,6 +419,10 @@ textarea.thesis-input:focus{border-color:var(--blue)}
     <div class="home-card" onclick="showSection('compare')"><div class="home-card-icon">⚡</div><div class="home-card-title">Compare Tool</div><div class="home-card-desc">Side-by-side analysis</div></div>
     <div class="home-card" onclick="showSection('cheatsheet')"><div class="home-card-icon">📄</div><div class="home-card-title">Cheat Sheet</div><div class="home-card-desc">Printable period summary</div></div>
     <div class="home-card" onclick="showSection('aitutor')"><div class="home-card-icon">🤖</div><div class="home-card-title">AI Tutor</div><div class="home-card-desc">Ask any APUSH question</div></div>
+    <div class="home-card" onclick="showSection('notes')"><div class="home-card-icon">📓</div><div class="home-card-title">Notes</div><div class="home-card-desc">Your notes by period</div></div>
+    <div class="home-card" onclick="showSection('mycards')"><div class="home-card-icon">✏️</div><div class="home-card-title">My Cards</div><div class="home-card-desc">Create custom flashcards</div></div>
+    <div class="home-card" onclick="showSection('videos')"><div class="home-card-icon">🎬</div><div class="home-card-title">Videos</div><div class="home-card-desc">Best APUSH review videos</div></div>
+    <div class="home-card" onclick="showSection('search')"><div class="home-card-icon">🔍</div><div class="home-card-title">Search</div><div class="home-card-desc">Find anything instantly</div></div>
   </div>
 </div>
 
@@ -757,6 +825,9 @@ function initDash(){
     <div class="card" style="margin-bottom:20px"><h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:16px;color:var(--blue-dark)">Mastery by Period</h3><div class="period-mastery">${pmHTML}</div></div>
     <div class="card"><h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:14px;color:var(--blue-dark)">Recent Quiz History</h3><div class="quiz-history">${histHTML}</div></div>
     <div style="margin-top:16px;text-align:right"><button class="btn btn-secondary btn-sm" onclick="if(confirm('Reset all progress?')){stats={mastered:{},srWeights:{},quizHistory:[],streak:{lastDate:\'\',count:0}};saveStats();initDash();}">Reset All Progress</button></div>`;
+  // export button added by v4
+  const _dash=document.getElementById('dash-content');
+  if(_dash&&!_dash.querySelector('.export-btn')){const _eb=document.createElement('button');_eb.className='btn btn-secondary btn-sm export-btn';_eb.style.marginTop='14px';_eb.textContent='📥 Export Progress';_eb.onclick=exportProgress;_dash.appendChild(_eb);}
 }
 
 // ═══════════════════════════════
@@ -1128,492 +1199,248 @@ function drawConn(){
 
 
 // ═══════════════════════════════
-// UPDATE showSection for new tabs
-// ═══════════════════════════════
-const _origShow=showSection;
-// Patch map for new sections
-const NEW_SECTION_MAP={boss:8,weakspot:9,figures:10,scotus:11,compare:12,cheatsheet:13,aitutor:14};
-const _origInits={dashboard:initDash,flashcards:initFC,quiz:initQuiz,timeline:initTL,match:initMatch,dbq:initDBQ,connections:initConn};
 
-function showSection(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  const el=document.getElementById(id);
-  if(el) el.classList.add('active');
-  const fullMap={home:0,dashboard:1,flashcards:2,quiz:3,timeline:4,match:5,dbq:6,connections:7,boss:8,weakspot:9,figures:10,scotus:11,compare:12,cheatsheet:13,aitutor:14};
-  const tabs=document.querySelectorAll('.nav-tab');
-  if(fullMap[id]!==undefined && tabs[fullMap[id]]) tabs[fullMap[id]].classList.add('active');
-  const allInits={dashboard:initDash,flashcards:initFC,quiz:initQuiz,timeline:initTL,match:initMatch,dbq:initDBQ,connections:initConn,boss:initBoss,weakspot:initWS,figures:initFigures,scotus:initSCOTUS,compare:initCompare,cheatsheet:initCheatSheet,aitutor:initAITutor};
-  if(allInits[id]) allInits[id]();
+// ═══════════════════════════════
+// PATCH showSection for v4 new sections (single patch)
+// ═══════════════════════════════
+(function(){
+  const _orig = window.showSection || showSection;
+  window.showSection = function(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+    const el=document.getElementById(id);if(el)el.classList.add('active');
+    const map={home:0,dashboard:1,flashcards:2,quiz:3,timeline:4,match:5,dbq:6,connections:7,boss:8,weakspot:9,figures:10,scotus:11,compare:12,cheatsheet:13,aitutor:14,notes:15,mycards:16,videos:17,search:18};
+    const tabs=document.querySelectorAll('.nav-tab');
+    if(map[id]!==undefined&&tabs[map[id]])tabs[map[id]].classList.add('active');
+    const inits={dashboard:initDash,flashcards:initFC,quiz:initQuiz,timeline:initTL,match:initMatch,dbq:initDBQ,connections:initConn,boss:initBoss,weakspot:initWS,figures:initFigures,scotus:initSCOTUS,compare:initCompare,cheatsheet:initCheatSheet,aitutor:initAITutor,notes:initNotes,mycards:initMyCards,videos:initVideos,search:initSearch};
+    if(inits[id])inits[id]();
+    showKbHint(id);
+  };
+  // also expose as showSection globally
+  window.showSection = window.showSection;
+})();
+
+// ═══════════════════════════════
+// EXTRA FLASHCARDS
+// ═══════════════════════════════
+[
+  {p:'P1&2',q:'What was the significance of the Mayflower Compact (1620)?',a:'First self-governing document in the colonies — Pilgrims agreed to create laws for the general good. Precedent for consent of the governed.'},
+  {p:'P3',q:'What were the Virginia & Kentucky Resolutions (1798)?',a:'Written by Jefferson & Madison against the Alien & Sedition Acts. Argued states could nullify unconstitutional federal laws. Foreshadowed Calhoun's nullification theory.'},
+  {p:'P4',q:'What were the key outcomes of the War of 1812?',a:'Treaty of Ghent — no territory gained/lost. Boosted US manufacturing independence. Sparked nationalism ("Era of Good Feelings"). Federalist Party collapsed after Hartford Convention backlash.'},
+  {p:'P4',q:'What was Henry Clay's American System?',a:'High protective tariffs, national bank for stable currency, federal subsidies for infrastructure. Supported by Whigs, opposed by Democrats as favoring industry over farmers.'},
+  {p:'P5',q:'Why did Reconstruction ultimately fail?',a:'Compromise of 1877 ended federal military presence in South. Jim Crow laws, sharecropping, KKK terror, and Black Codes reinstated racial subjugation. Short-term gains reversed.'},
+  {p:'P6',q:'What was Carnegie's "Gospel of Wealth" (1889)?',a:'Wealthy had responsibility for philanthropy — but the rich decide HOW to use it. Patronizing toward the poor. Led to Carnegie Hall, Carnegie Mellon, public libraries. Justified inequality as natural.'},
+  {p:'P6',q:'What was the Dawes Severalty Act (1887) and its effects?',a:'Broke up tribal land into individual 160-acre allotments to "assimilate" Natives. Destroyed communal culture. Native Americans lost 90 of 150 million acres by 1934.'},
+  {p:'P7',q:'What was the significance of the Triangle Shirtwaist Fire (1911)?',a:'146 garment workers (mostly immigrant women) died due to locked doors and inadequate fire escapes. Led to sweeping workplace safety reforms and labor regulations.'},
+  {p:'P7',q:'What caused the Great Depression (1929)?',a:'Stock market speculation, buying on margin, overproduction, weak banking regulation. Hawley-Smoot Tariff worsened it. Bank failures cascaded; unemployment hit 25%.'},
+  {p:'P8&9',q:'What was the GI Bill (1944) and its effects?',a:'Provided veterans with college tuition, low-interest home loans, job training. Created the postwar white middle class and suburbanization. Discriminatorily excluded many Black veterans.'},
+  {p:'P8&9',q:'What was Nixon's policy of détente?',a:'Easing Cold War tensions through diplomacy — visiting China (1972), SALT I with USSR. Used China-USSR rivalry to US advantage. Reduced nuclear war risk.'},
+  {p:'P8&9',q:'What was the Iran-Contra Affair (1987)?',a:'Reagan administration secretly sold arms to Iran (violating embargo) and used profits to fund Nicaraguan Contras (violating Boland Amendment). Tower Commission cleared Reagan.'},
+].forEach(c=>{if(!FC_DATA.find(x=>x.q===c.q))FC_DATA.push(c);});
+
+// ═══════════════════════════════
+// EXTRA QUIZ QUESTIONS
+// ═══════════════════════════════
+[
+  {p:'P1&2',q:'The Mayflower Compact (1620) is significant primarily because it:',opts:['Established the first permanent English settlement','Demonstrated that colonists could create self-governing political institutions','Created a formal alliance with the Wampanoag','Granted religious freedom to all colonists'],ans:1,exp:'The Compact was the first written framework for self-government, establishing a precedent for consent of the governed.'},
+  {p:'P3',q:'Washington's Farewell Address most directly influenced later US foreign policy by:',opts:['Establishing the Monroe Doctrine','Promoting a tradition of avoiding permanent foreign alliances','Calling for a strong military','Advocating free trade with all nations'],ans:1,exp:'Washington's warning against "permanent alliances" became the foundation of American isolationism, only fully abandoned after Pearl Harbor.'},
+  {p:'P4',q:'The Era of Good Feelings following the War of 1812 was characterized by:',opts:['Elimination of all political disagreements','Temporary one-party rule and a surge of American nationalism','Economic depression and unemployment','Rapid territorial expansion into Canada'],ans:1,exp:'The war's inconclusive end paradoxically boosted nationalism. The Federalist Party collapsed — but sectional tensions soon ended this era.'},
+  {p:'P5',q:'The Freedman's Bureau (1865) is best described as:',opts:['A highly successful program achieving lasting equality','A program with short-term successes (especially education) that was chronically underfunded and dismantled','A complete failure providing no meaningful assistance','A program that successfully redistributed land to freedpeople'],ans:1,exp:'The Bureau founded 4,000+ schools but never delivered the promised "40 acres," was chronically underfunded, and was dismantled when Reconstruction ended.'},
+  {p:'P6',q:'The Dawes Severalty Act (1887) attempted to assimilate Native Americans by:',opts:['Granting full citizenship to all Native Americans','Breaking up tribal communal lands into individual family allotments','Establishing reservation schools teaching Native languages','Providing financial compensation for seized lands'],ans:1,exp:'The Dawes Act broke up tribal landholding into individual 160-acre plots, destroying communal culture. Natives lost ~90 million acres.'},
+].forEach(q=>{if(!QUIZ_QUESTIONS.find(x=>x.q===q.q))QUIZ_QUESTIONS.push({p:q.p,q:q.q,opts:q.opts,ans:q.ans,exp:q.exp});});
+
+// ═══════════════════════════════
+// EXTRA COMPARE PAIRS
+// ═══════════════════════════════
+Object.assign(COMPARE_ITEMS,{
+  'Hoover vs. FDR (Depression Response)':{
+    a:{name:'Hoover's Response (1929–32)',period:'P7',Philosophy:'Laissez-faire; rugged individualism; voluntary cooperation',Programs:'RFC (loans to businesses only); Hawley-Smoot Tariff; Bonus Army dispersed',Result:'Depression deepened; unemployment hit 25%; "Hoovervilles" formed',Legacy:'Discredited laissez-faire; paved way for FDR's landslide 1932 win'},
+    b:{name:'FDR's New Deal (1933–38)',period:'P7',Philosophy:'Active federal government responsible for citizens' welfare',Programs:'WPA, CCC, AAA, TVA, Social Security Act, FDIC, Glass-Steagall',Result:'Relief provided; economy improved but WWII truly ended the Depression',Legacy:'Permanently expanded federal role; created social safety net'},
+    shared:['Both faced the same unprecedented economic catastrophe','Both struggled with constitutional limits on federal power','The Depression required both to improvise without historical precedent','Hoover's failure made FDR's expansion politically viable']
+  },
+  'Korean War vs. Vietnam War':{
+    a:{name:'Korean War (1950–1953)',period:'P8&9',Cause:'North Korea invaded South; UN authorized response',Strategy:'Conventional warfare; UN coalition under US command',Outcome:'Fought to a draw; Korea divided at 38th parallel; 36,000 US dead',Legacy:'Established precedent for fighting communism without declaring war'},
+    b:{name:'Vietnam War (1964–1973)',period:'P8&9',Cause:'Gulf of Tonkin Resolution; domino theory; containment',Strategy:'Guerrilla warfare; escalating draft; unclear objectives',Outcome:'US withdrawal 1973; Saigon fell 1975; 58,000 US dead',Legacy:'Vietnam Syndrome; War Powers Act 1973; distrust of government'},
+    shared:['Both were proxy Cold War conflicts against communist forces','Both fought without a formal declaration of war','Both used containment as justification','Both divided American public opinion']
+  },
+  'First vs. Second Red Scare':{
+    a:{name:'First Red Scare (1919–1920)',period:'P7',Cause:'Russian Revolution; labor strikes; anarchist bombings',Response:'Palmer Raids; mass arrests/deportations; targeting immigrants',Victims:'Socialists, anarchists, immigrants (Eastern European)'},
+    b:{name:'McCarthyism / Second Red Scare (1947–1954)',period:'P8&9',Cause:'Soviet atomic bomb; China fell to communism; Korean War; Rosenbergs',Response:'HUAC investigations; Hollywood blacklist; loyalty oaths; Senate hearings',Victims:'Government employees, Hollywood figures, academics, labor leaders'},
+    shared:['Both exploited genuine fears about communist subversion','Both led to serious civil liberties violations','Both disproportionately targeted immigrants and minorities','Both show: national security fear → civil liberties restrictions']
+  },
+});
+
+// ═══════════════════════════════
+// VIDEO DATA
+// ═══════════════════════════════
+const VIDEO_DATA=[
+  {p:'P1&2',channel:'HEIMLER'S HISTORY',title:'APUSH Period 1 & 2 Review (1491–1754)',desc:'Fast, comprehensive review of colonization, Salutary Neglect, and colonial tensions.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+1+2',thumb:'🎬'},
+  {p:'P1&2',channel:'TOM RICHEY',title:'Colonial America Complete Review',desc:'All three colonial regions, labor systems, and the Great Awakening.',url:'https://www.youtube.com/results?search_query=tom+richey+apush+colonial+america',thumb:'📺'},
+  {p:'P3',channel:'HEIMLER'S HISTORY',title:'APUSH Period 3 — Revolution & New Republic',desc:'Causes of Revolution, Articles, Constitution, and early republic debates.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+3',thumb:'🎬'},
+  {p:'P3',channel:'CRASH COURSE US HISTORY',title:'The Constitution, Articles & Federalism',desc:'John Green breaks down the founding documents and Federalist vs. Anti-Federalist debates.',url:'https://www.youtube.com/results?search_query=crash+course+us+history+constitution+federalism',thumb:'📺'},
+  {p:'P4',channel:'HEIMLER'S HISTORY',title:'APUSH Period 4 Review (1800–1848)',desc:'Market Revolution, Age of Reform, Jacksonian Democracy.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+4',thumb:'🎬'},
+  {p:'P5',channel:'HEIMLER'S HISTORY',title:'APUSH Period 5 — Manifest Destiny & Civil War',desc:'Road to Civil War, the war itself, and Reconstruction.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+5+civil+war',thumb:'🎬'},
+  {p:'P5',channel:'CRASH COURSE US HISTORY',title:'The Civil War & Reconstruction',desc:'John Green on why the Civil War happened and why Reconstruction failed.',url:'https://www.youtube.com/results?search_query=crash+course+civil+war+reconstruction',thumb:'📺'},
+  {p:'P6',channel:'HEIMLER'S HISTORY',title:'APUSH Period 6 — The Gilded Age (1865–1898)',desc:'Industrialization, labor unions, Populism in under 20 minutes.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+6+gilded+age',thumb:'🎬'},
+  {p:'P6',channel:'TOM RICHEY',title:'The Gilded Age, Populism & Labor Unions',desc:'Rockefeller, Carnegie, Gompers, and the farmers revolt.',url:'https://www.youtube.com/results?search_query=tom+richey+gilded+age+apush',thumb:'📺'},
+  {p:'P7',channel:'HEIMLER'S HISTORY',title:'APUSH Period 7 — America on the World Stage',desc:'Imperialism, Progressive Era, WWI, Roaring 20s, Great Depression, WWII.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+7',thumb:'🎬'},
+  {p:'P7',channel:'CRASH COURSE US HISTORY',title:'The Progressive Era, WWI and the New Deal',desc:'Three crucial eras with Crash Course clarity.',url:'https://www.youtube.com/results?search_query=crash+course+progressive+era+new+deal',thumb:'📺'},
+  {p:'P8&9',channel:'HEIMLER'S HISTORY',title:'APUSH Period 8 & 9 — Modern America',desc:'Cold War, Civil Rights, Vietnam, Nixon, Reagan, and 9/11.',url:'https://www.youtube.com/results?search_query=heimler+history+apush+period+8+9',thumb:'🎬'},
+  {p:'P8&9',channel:'TOM RICHEY',title:'The Civil Rights Movement Complete Review',desc:'Montgomery to Black Power — strategies, figures, legislation, and resistance.',url:'https://www.youtube.com/results?search_query=tom+richey+civil+rights+movement+apush',thumb:'📺'},
+  {p:'All',channel:'MARCO LEARNING',title:'APUSH Full Exam Review — All Periods',desc:'Complete review of all 9 periods for last-minute APUSH exam prep.',url:'https://www.youtube.com/results?search_query=marco+learning+apush+full+review',thumb:'🎬'},
+  {p:'All',channel:'ADAM NORRIS',title:'APUSH Review — Key Concepts and Themes',desc:'Thematic connections across all periods — perfect for DBQ/LEQ complexity.',url:'https://www.youtube.com/results?search_query=adam+norris+apush+review',thumb:'📺'},
+];
+
+// ═══════════════════════════════
+// NOTES FEATURE
+// ═══════════════════════════════
+const NOTE_PERIODS = ['P1&2','P3','P4','P5','P6','P7','P8&9','General'];
+let activeNotePeriod = 'P1&2', noteSaveTimer = null;
+
+function initNotes(){
+  document.getElementById('notes-area').innerHTML=`
+    <div class="notes-tabs">${NOTE_PERIODS.map(p=>`<button class="notes-tab${p===activeNotePeriod?' active':''}" onclick="switchNote('${p}')">${p}</button>`).join('')}</div>
+    <div style="display:flex;gap:7px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+      <button class="btn btn-secondary btn-sm" onclick="noteInsert('→ ')">→</button>
+      <button class="btn btn-secondary btn-sm" onclick="noteInsert('• ')">• List</button>
+      <button class="btn btn-secondary btn-sm" onclick="noteInsert('\n---\n')">── Divider</button>
+      <span class="notes-saved" id="note-saved">✓ Saved</span>
+      <span id="note-wc" style="font-size:.74rem;color:var(--text-muted)"></span>
+    </div>
+    <textarea class="notes-editor" id="note-editor" placeholder="Notes for ${activeNotePeriod}…" oninput="noteOnInput()">${lNote(activeNotePeriod)}</textarea>
+    <div style="display:flex;gap:8px;margin-top:9px;flex-wrap:wrap">
+      <button class="btn btn-secondary btn-sm" onclick="clearNote()">🗑 Clear</button>
+      <button class="btn btn-secondary btn-sm" onclick="exportNotes()">📥 Export All Notes</button>
+    </div>`;
+  noteUpdateWC();
+}
+function lNote(p){return localStorage.getItem('apush-note-'+p)||'';}
+function sNote(p,t){localStorage.setItem('apush-note-'+p,t);}
+function noteOnInput(){const t=document.getElementById('note-editor')?.value||'';sNote(activeNotePeriod,t);noteUpdateWC();clearTimeout(noteSaveTimer);const el=document.getElementById('note-saved');if(el){el.classList.remove('show');noteSaveTimer=setTimeout(()=>el.classList.add('show'),500);}}
+function noteUpdateWC(){const ed=document.getElementById('note-editor'),wc=document.getElementById('note-wc');if(ed&&wc){wc.textContent=ed.value.trim().split(/\s+/).filter(x=>x).length+' words';}}
+function switchNote(p){const ed=document.getElementById('note-editor');if(ed)sNote(activeNotePeriod,ed.value);activeNotePeriod=p;document.querySelectorAll('.notes-tab').forEach(t=>t.classList.toggle('active',t.textContent===p));if(ed){ed.value=lNote(p);}noteUpdateWC();}
+function noteInsert(t){const ed=document.getElementById('note-editor');if(!ed)return;const s=ed.selectionStart;ed.value=ed.value.substring(0,s)+t+ed.value.substring(ed.selectionEnd);ed.selectionStart=ed.selectionEnd=s+t.length;ed.focus();noteOnInput();}
+function clearNote(){if(!confirm('Clear notes for '+activeNotePeriod+'?'))return;sNote(activeNotePeriod,'');const ed=document.getElementById('note-editor');if(ed)ed.value='';noteUpdateWC();}
+function exportNotes(){let o=`APUSH Study Notes\nExported: ${new Date().toLocaleDateString()}\n${'='.repeat(40)}\n\n`;NOTE_PERIODS.forEach(p=>{const n=lNote(p);if(n.trim())o+=`\n${p}\n${'-'.repeat(30)}\n${n}\n`;});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([o],{type:'text/plain'}));a.download='APUSH_Notes.txt';a.click();}
+
+// ═══════════════════════════════
+// MY CARDS FEATURE
+// ═══════════════════════════════
+function getMyCards(){return JSON.parse(localStorage.getItem('apush-mycards')||'[]');}
+function setMyCards(c){localStorage.setItem('apush-mycards',JSON.stringify(c));}
+function initMyCards(){renderMyCards();}
+function renderMyCards(){
+  const cards=getMyCards();
+  document.getElementById('mycards-area').innerHTML=`
+    <div class="mycard-form">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:12px;color:var(--blue-dark)">➕ Add a New Card</h3>
+      <label>Period</label><select id="mc-period">${['P1&2','P3','P4','P5','P6','P7','P8&9'].map(p=>`<option value="${p}">${p}</option>`).join('')}</select>
+      <label>Question / Term</label><input type="text" id="mc-q" placeholder="e.g. What was the XYZ Affair?">
+      <label>Answer / Definition</label><textarea id="mc-a" placeholder="e.g. French agents demanded a bribe..."></textarea>
+      <button class="btn btn-primary" onclick="addMyCard()">Add Card</button>
+    </div>
+    ${cards.length?`<div style="font-size:.82rem;font-weight:600;color:var(--text-muted);margin-bottom:9px">YOUR CARDS (${cards.length})</div>${cards.map((c,i)=>`<div class="mycard-item"><div style="flex:1"><div class="mycard-q">${c.q}</div><div class="mycard-a">${c.a}</div><div class="mycard-meta">${c.p} · Custom</div></div><button class="mycard-del" onclick="deleteMyCard(${i})">🗑</button></div>`).join('')}<div style="margin-top:10px"><button class="btn btn-secondary btn-sm" onclick="if(confirm('Clear all?')){setMyCards([]);FC_DATA.splice(0,FC_DATA.length,...FC_DATA.filter(c=>!c.custom));renderMyCards();}">Clear All</button></div>`:'<div style="text-align:center;padding:28px;color:var(--text-muted)">No custom cards yet!</div>'}`;
+}
+function addMyCard(){
+  const q=(document.getElementById('mc-q').value||'').trim(),a=(document.getElementById('mc-a').value||'').trim(),p=document.getElementById('mc-period').value;
+  if(!q||!a){alert('Please fill in both question and answer.');return;}
+  const cards=getMyCards();cards.unshift({q,a,p,custom:true});setMyCards(cards);
+  if(!FC_DATA.find(c=>c.q===q))FC_DATA.push({p,q,a,custom:true});
+  renderMyCards();document.getElementById('mc-q').value='';document.getElementById('mc-a').value='';
+}
+function deleteMyCard(i){const cards=getMyCards(),r=cards.splice(i,1)[0];setMyCards(cards);const idx=FC_DATA.findIndex(c=>c.custom&&c.q===r.q);if(idx>-1)FC_DATA.splice(idx,1);renderMyCards();}
+function syncMyCardsToFC(){getMyCards().forEach(c=>{if(!FC_DATA.find(x=>x.q===c.q))FC_DATA.push({p:c.p,q:c.q,a:c.a,custom:true});});}
+
+// ═══════════════════════════════
+// VIDEOS FEATURE
+// ═══════════════════════════════
+function initVideos(){
+  buildFilter('vid-filter',p=>renderVideos(p));
+  renderVideos('All');
+}
+function renderVideos(period){
+  const list=period==='All'?VIDEO_DATA:VIDEO_DATA.filter(v=>v.p===period||v.p==='All');
+  document.getElementById('vid-area').innerHTML=`<div class="vid-grid">${list.map(v=>`<div class="vid-card" onclick="window.open('${v.url}','_blank')"><div class="vid-thumb">${v.thumb}</div><div class="vid-body"><div class="vid-channel">${v.channel}</div><div class="vid-title">${v.title}</div><div class="vid-desc">${v.desc}</div><span class="vid-period">${v.p}</span></div></div>`).join('')}</div><div style="margin-top:14px;padding:11px 15px;background:var(--blue-light);border-radius:10px;font-size:.8rem;color:var(--blue-dark)">💡 Links open YouTube search results. Heimler and Tom Richey are the #1 APUSH channels.</div>`;
 }
 
 // ═══════════════════════════════
-// DATA — KEY FIGURES
+// SEARCH FEATURE
 // ═══════════════════════════════
-const FIGURES=[
-  {p:'P1&2',emoji:'⛵',name:'Bartolome de las Casas',role:'Spanish Friar / Reformer',sig:'Exposed brutal treatment of Natives under the Encomienda system ("Black Legend," 1552). Advocated for Native rights. Led to reform of Spanish colonial policy after Pueblo Revolt.',tags:['Colonization','Reform']},
-  {p:'P1&2',emoji:'🌽',name:'John Rolfe',role:'Jamestown Colonist',sig:'Introduced tobacco cultivation to Virginia (1612), saving Jamestown economically. Married Pocahontas, temporarily ending Anglo-Powhatan conflict. Created the plantation economy that shaped the South.',tags:['Economics','Colonization']},
-  {p:'P3',emoji:'📜',name:'Thomas Paine',role:'Political Writer',sig:'Common Sense (1776) argued for independence using plain language accessible to all colonists. Used Enlightenment ideas (natural rights, republicanism) to build revolutionary public support.',tags:['Revolution','Philosophy']},
-  {p:'P3',emoji:'🏛️',name:'Alexander Hamilton',role:'Founding Father / Treasury Secretary',sig:'Proposed national bank, assumption of state debts, protective tariffs. Founded the Federalist Party. Co-authored Federalist Papers. His economic vision shaped American capitalism.',tags:['Government','Economics']},
-  {p:'P3',emoji:'🌳',name:'Thomas Jefferson',role:'President / Political Philosopher',sig:'"Revolution of 1800" — first peaceful transfer of power. Louisiana Purchase (1803) doubled US size despite his strict constructionism. Authored Declaration of Independence.',tags:['Government','Expansion']},
-  {p:'P4',emoji:'⚖️',name:'John Marshall',role:'Chief Justice (1801–1835)',sig:'Established judicial review (Marbury v. Madison, 1803). Strengthened federal power over states (McCulloch v. Maryland, 1819). Made the Supreme Court a co-equal branch of government.',tags:['Government','SCOTUS']},
-  {p:'P4',emoji:'🪓',name:'Andrew Jackson',role:'7th President',sig:'Spoils system, Indian Removal Act/Trail of Tears, Bank War, Nullification Crisis. Championed "common man" democracy but denied rights to Natives and enslaved people.',tags:['Government','Expansion']},
-  {p:'P4',emoji:'🌊',name:'Frederick Douglass',role:'Abolitionist / Author',sig:'Escaped slavery, wrote Narrative (1845) exposing the reality of slavery. Leading abolitionist voice. Argued for immediate emancipation and equal rights for all Americans.',tags:['Reform','Slavery']},
-  {p:'P5',emoji:'🕊️',name:'Abraham Lincoln',role:'16th President',sig:'Led Union through Civil War. Emancipation Proclamation (1863) changed war\'s moral purpose. Gettysburg Address redefined the nation\'s ideals. Assassinated 5 days after Lee\'s surrender.',tags:['Civil War','Government']},
-  {p:'P5',emoji:'🔨',name:'John Brown',role:'Radical Abolitionist',sig:'Led Pottawatomie Massacre and Harpers Ferry raid (1859) in attempt to spark slave revolt. Executed and became a martyr for the abolitionist cause. Alarmed the South into preparing for war.',tags:['Slavery','Reform']},
-  {p:'P5',emoji:'📚',name:'Harriet Beecher Stowe',role:'Author',sig:'Uncle Tom\'s Cabin (1851) heightened Northern anti-slavery sentiment with emotional appeals. Lincoln called her "the little lady who started this great war." Banned in the South.',tags:['Reform','Slavery']},
-  {p:'P6',emoji:'🛢️',name:'John D. Rockefeller',role:'Industrialist',sig:'Standard Oil — used horizontal integration to control 90%+ of US oil refining. Symbol of Gilded Age monopoly power. Became target of Progressive trust-busting. Gospel of Wealth philanthropy.',tags:['Economics','Gilded Age']},
-  {p:'P6',emoji:'⚙️',name:'Andrew Carnegie',role:'Industrialist / Philanthropist',sig:'Carnegie Steel — vertical integration controlled mines to mills. "Gospel of Wealth" (1889): wealthy should use fortunes for public good. Carnegie Hall, Carnegie Mellon University.',tags:['Economics','Gilded Age']},
-  {p:'P6',emoji:'🎓',name:'Booker T. Washington',role:'Educator / Civil Rights Leader',sig:'Founded Tuskegee Institute. "Atlanta Compromise" (1895): accept segregation for now, focus on vocational skills and economic advancement. "Accommodationist" — criticized by DuBois.',tags:['Civil Rights','Education']},
-  {p:'P7',emoji:'📰',name:'W.E.B. DuBois',role:'Scholar / Civil Rights Leader',sig:'"Talented Tenth" (1903): top 10% of Black Americans should receive higher education and lead the community. Rejected Washington\'s gradualism. Co-founded NAACP (1909).',tags:['Civil Rights','Reform']},
-  {p:'P7',emoji:'🔬',name:'Upton Sinclair',role:'Muckraker / Author',sig:'The Jungle (1906) exposed horrific conditions in Chicago meatpacking plants. "I aimed for the public\'s heart and by accident hit it in the stomach." Led to Pure Food and Drug Act.',tags:['Reform','Progressivism']},
-  {p:'P7',emoji:'🦁',name:'Theodore Roosevelt',role:'26th President',sig:'Trust-buster (dissolved Standard Oil). Square Deal. Big Stick Diplomacy. Panama Canal. Conservation. "Bull Moose" Party (1912). Defined the modern activist presidency.',tags:['Government','Reform']},
-  {p:'P7',emoji:'🕊️',name:'Woodrow Wilson',role:'28th President',sig:'14 Points and League of Nations (rejected by Senate). New Freedom program. Federal Reserve Act. Led US into WWI. Suffered stroke fighting for Treaty of Versailles ratification.',tags:['Government','WWI']},
-  {p:'P7',emoji:'🚬',name:'Franklin D. Roosevelt',role:'32nd President',sig:'New Deal (1933) expanded federal government\'s role in the economy. Led US through WWII. Only president elected 4 times. Created Social Security, FDIC. Died before WWII ended.',tags:['Government','Great Depression']},
-  {p:'P8&9',emoji:'✊',name:'Martin Luther King Jr.',role:'Civil Rights Leader',sig:'"I Have a Dream" (1963 March on Washington). Montgomery Bus Boycott. Letter from Birmingham Jail. Nobel Peace Prize (1964). Nonviolent direct action philosophy. Assassinated 1968.',tags:['Civil Rights','Reform']},
-  {p:'P8&9',emoji:'🗣️',name:'Malcolm X',role:'Civil Rights Leader',sig:'Advocated progress "by any means necessary" and the "ballot or the bullet." Promoted Black pride, community control, self-defense. Nation of Islam, then broke with it. Assassinated 1965.',tags:['Civil Rights','Reform']},
-  {p:'P8&9',emoji:'🌟',name:'Ronald Reagan',role:'40th President',sig:'Reaganomics: tax cuts, deregulation, reduced social spending. Moral Majority coalition. "Evil Empire" vs. USSR. Iran-Contra scandal. SDI (Star Wars). Fall of Berlin Wall (1989).',tags:['Government','Cold War']},
-  {p:'P8&9',emoji:'🔓',name:'Thurgood Marshall',role:'NAACP Lawyer / Justice',sig:'Led NAACP legal team arguing Brown v. Board of Education (1954) — overturned Plessy v. Ferguson. First African American Supreme Court Justice (1967). Transformed civil rights through law.',tags:['Civil Rights','SCOTUS']},
-];
+let searchFilter2='all', srActions=[];
+function initSearch(){
+  if(document.getElementById('search-area').innerHTML.trim())return;
+  document.getElementById('search-area').innerHTML=`
+    <div class="search-input-wrap"><span class="search-icon">🔍</span><input class="search-input" id="search-input" type="text" placeholder="Search flashcards, figures, SCOTUS cases, comparisons…" oninput="doSearch(this.value)"></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+      <button class="sf-btn active" onclick="setSearchF('all',this)">All</button>
+      <button class="sf-btn" onclick="setSearchF('fc',this)">Flashcards</button>
+      <button class="sf-btn" onclick="setSearchF('fig',this)">Figures</button>
+      <button class="sf-btn" onclick="setSearchF('scotus',this)">SCOTUS</button>
+      <button class="sf-btn" onclick="setSearchF('compare',this)">Compare</button>
+    </div>
+    <div id="search-results"><div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:2rem;margin-bottom:9px">🔍</div>Start typing to search. Press <kbd>/</kbd> anywhere to open search.</div></div>`;
+  setTimeout(()=>document.getElementById('search-input')?.focus(),100);
+}
+function setSearchF(f,btn){searchFilter2=f;document.querySelectorAll('.sf-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const q=document.getElementById('search-input')?.value||'';if(q.length>=2)doSearch(q);}
+function hlText(text,q){if(!q)return text;return String(text).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<span class="search-highlight">$1</span>');}
+function doSearch(q){
+  const res=document.getElementById('search-results');if(!res)return;
+  if(!q||q.length<2){res.innerHTML='<div style="text-align:center;padding:28px;color:var(--text-muted)">Type at least 2 characters</div>';return;}
+  const ql=q.toLowerCase();const results=[];srActions=[];
+  if(searchFilter2==='all'||searchFilter2==='fc'){FC_DATA.filter(c=>c.q.toLowerCase().includes(ql)||c.a.toLowerCase().includes(ql)).slice(0,8).forEach(c=>{srActions.push(()=>showSection('flashcards'));results.push({type:'Flashcard',period:c.p,title:hlText(c.q,q),preview:hlText(c.a.substring(0,120),q)});});}
+  if(searchFilter2==='all'||searchFilter2==='fig'){(window.FIGURES||[]).filter(f=>f.name.toLowerCase().includes(ql)||f.sig.toLowerCase().includes(ql)).slice(0,5).forEach(f=>{srActions.push(()=>showSection('figures'));results.push({type:'Key Figure',period:f.p,title:hlText(f.name,q),preview:hlText(f.role+' — '+f.sig.substring(0,100),q)});});}
+  if(searchFilter2==='all'||searchFilter2==='scotus'){(window.SCOTUS_CASES||[]).filter(c=>c.case.toLowerCase().includes(ql)||c.ruling.toLowerCase().includes(ql)).slice(0,5).forEach(c=>{srActions.push(()=>showSection('scotus'));results.push({type:'SCOTUS Case',period:c.p,title:hlText(c.case+' ('+c.year+')',q),preview:hlText(c.ruling,q)});});}
+  if(searchFilter2==='all'||searchFilter2==='compare'){Object.entries(COMPARE_ITEMS||{}).filter(([k])=>k.toLowerCase().includes(ql)).slice(0,3).forEach(([k,v])=>{srActions.push(()=>{showSection('compare');setTimeout(()=>{const s=document.querySelector('#compare-area select');if(s){s.value=k;renderCompare(k);}},300);});results.push({type:'Compare',period:v.a.period,title:hlText(k,q),preview:'Side-by-side: '+v.a.name+' vs. '+v.b.name});});}
+  if(!results.length){res.innerHTML=`<div style="text-align:center;padding:28px;color:var(--text-muted)">No results for "<strong>${q}</strong>"</div>`;return;}
+  res.innerHTML=results.map((r,i)=>`<div class="search-result" onclick="srActions[${i}]()"><div class="search-result-type">${r.type} · <span class="badge badge-blue">${r.period}</span></div><div class="search-result-title">${r.title}</div><div class="search-result-preview">${r.preview}</div></div>`).join('');
+}
 
 // ═══════════════════════════════
-// DATA — SCOTUS CASES
+// KEYBOARD SHORTCUTS
 // ═══════════════════════════════
-const SCOTUS_CASES=[
-  {p:'P3',case:'Marbury v. Madison',year:1803,ruling:'Established judicial review — the Supreme Court\'s power to strike down unconstitutional laws.',sig:'Made the judiciary a co-equal branch; basis of all constitutional law.',exam:'🔑 Know: judicial review, John Marshall, constitutional balance of power'},
-  {p:'P4',case:'McCulloch v. Maryland',year:1819,ruling:'Federal government has implied powers; federal law is supreme over state law (national bank is constitutional).',sig:'Strengthened federal government vs. states; established "necessary and proper" clause.',exam:'🔑 Know: implied powers, federal supremacy, Hamilton vs. Jefferson debate'},
-  {p:'P4',case:'Dartmouth College v. Woodward',year:1819,ruling:'States cannot interfere with private contracts; college charter is a contract.',sig:'Protected private property and contracts from state interference; encouraged business investment.',exam:'🔑 Connect to: Market Revolution, protection of property rights'},
-  {p:'P4',case:'Worcester v. Georgia',year:1832,ruling:'Cherokee Nation is a distinct community; Georgia law has no force within Cherokee territory.',sig:'Jackson ignored it ("John Marshall has made his decision; now let him enforce it") — led to Trail of Tears.',exam:'🔑 Know: Jackson\'s defiance, limits of judicial power, Indian Removal'},
-  {p:'P5',case:'Dred Scott v. Sandford',year:1857,ruling:'Black people are not citizens and cannot sue in federal courts; Congress cannot ban slavery in any territory.',sig:'Inflamed abolitionists; made civil war nearly inevitable; invalidated Missouri Compromise.',exam:'🔑 Know: Chief Justice Taney, 5th Amendment property argument, impact on slavery debate'},
-  {p:'P6',case:'Plessy v. Ferguson',year:1896,ruling:'"Separate but equal" facilities do not violate the 14th Amendment\'s equal protection clause.',sig:'Legalized racial segregation nationwide; foundation of Jim Crow laws for 58 years.',exam:'🔑 Know: 14th Amendment, "separate but equal," not overturned until Brown (1954)'},
-  {p:'P7',case:'Schenck v. United States',year:1919,ruling:'Espionage Act did not violate 1st Amendment; speech creating "clear and present danger" can be restricted.',sig:'Established limits on free speech during wartime; trend of civil liberties curtailed in times of fear.',exam:'🔑 Know: "clear and present danger" test, WWI civil liberties, Espionage Act'},
-  {p:'P7',case:'Korematsu v. United States',year:1944,ruling:'Japanese American internment under Executive Order 9066 was constitutional.',sig:'Upheld wartime internment despite racial motivation; later formally repudiated (2018).',exam:'🔑 Know: Executive Order 9066, WWII civil liberties, racial discrimination in wartime'},
-  {p:'P8&9',case:'Brown v. Board of Education',year:1954,ruling:'"Separate educational facilities are inherently unequal" — overturned Plessy v. Ferguson.',sig:'Ended legal school segregation; launched Civil Rights Movement; "all deliberate speed" was a loophole.',exam:'🔑 Know: Thurgood Marshall/NAACP, overturning Plessy, massive resistance in the South'},
-  {p:'P8&9',case:'Engel v. Vitale',year:1962,ruling:'School-sponsored prayer in public schools violates the Establishment Clause of the 1st Amendment.',sig:'Reinforced separation of church and state; sparked ongoing culture wars debate.',exam:'🔑 Know: 1st Amendment Establishment Clause, religion in public life debate'},
-  {p:'P8&9',case:'Roe v. Wade',year:1973,ruling:'Laws banning abortion are unconstitutional under the right to privacy (implied by the 14th Amendment).',sig:'Defined abortion as a constitutional right; became major flashpoint in culture wars and politics.',exam:'🔑 Know: right to privacy, 14th Amendment, connection to Moral Majority backlash'},
-  {p:'P8&9',case:'United States v. Nixon',year:1974,ruling:'Executive privilege is not absolute; president must comply with judicial subpoenas.',sig:'Nixon forced to release White House Tapes — "smoking gun" — leading directly to his resignation.',exam:'🔑 Know: Watergate, executive privilege, limits of presidential power'},
-];
+let kbCurrentSection='';
+function showKbHint(section){
+  kbCurrentSection=section;
+  const hint=document.getElementById('kb-hint');if(!hint)return;
+  const hints={flashcards:'<kbd>Space</kbd> flip &nbsp; <kbd>←→</kbd> navigate &nbsp; <kbd>G</kbd> got it &nbsp; <kbd>A</kbd> again',quiz:'<kbd>A B C D</kbd> answer &nbsp; <kbd>Enter</kbd> next'};
+  if(hints[section]){hint.innerHTML='⌨️ '+hints[section];hint.classList.add('show');setTimeout(()=>hint.classList.remove('show'),4000);}
+}
+document.addEventListener('keydown',e=>{
+  const tag=document.activeElement.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;
+  if(kbCurrentSection==='flashcards'){if(e.key===' '){e.preventDefault();flipCard();}else if(e.key==='ArrowRight')nextCard();else if(e.key==='ArrowLeft')prevCard();else if(e.key==='g'||e.key==='G')markCard('easy');else if(e.key==='a'||e.key==='A')markCard('hard');}
+  if(kbCurrentSection==='quiz'){const i='abcd'.indexOf(e.key.toLowerCase());if(i>=0&&!quizAnswered)selectAnswer(i);if(e.key==='Enter'&&quizAnswered)nextQuestion();}
+  if(e.key==='/'&&kbCurrentSection!=='search'){e.preventDefault();showSection('search');setTimeout(()=>document.getElementById('search-input')?.focus(),200);}
+});
 
 // ═══════════════════════════════
-// DATA — COMPARE ITEMS
+// EXPORT PROGRESS
 // ═══════════════════════════════
-const COMPARE_ITEMS={
-  'Hamilton vs. Jefferson':{
-    a:{name:'Alexander Hamilton',period:'P3',who:'Federalist; Treasury Secretary',econ:'Strong central bank, protective tariffs, industrial economy',govt:'Strong federal government; broad interpretation of Constitution',foreign:'Pro-British trade relations',legacy:'Founded Federalist Party; shaped American capitalism'},
-    b:{name:'Thomas Jefferson',period:'P3',who:'Democratic-Republican; 3rd President',econ:'Agrarian economy; opposed national bank',govt:'Weak federal government; strict construction of Constitution',foreign:'Pro-French; isolationism',legacy:'Authored Declaration; expanded territory via Louisiana Purchase'},
-    shared:['Both were Founding Fathers who shaped the early republic','Both served in Washington\'s cabinet','Their rivalry created the first American two-party system','Both grappled with the limits of the Constitution']
-  },
-  'Booker T. Washington vs. W.E.B. DuBois':{
-    a:{name:'Booker T. Washington',period:'P6',who:'Educator; Tuskegee Institute founder',strategy:'Gradualism — accept segregation for now',focus:'Vocational/industrial training; economic self-sufficiency',speech:'"Atlanta Compromise" (1895)',legacy:'Founded Tuskegee; short-term pragmatism; criticized as "accommodationist"'},
-    b:{name:'W.E.B. DuBois',period:'P7',who:'Scholar; NAACP co-founder',strategy:'Immediate full political and civil rights',focus:'"Talented Tenth" — higher education for Black leaders',speech:'"The Souls of Black Folk" (1903)',legacy:'Co-founded NAACP; influenced Civil Rights Movement; Pan-Africanism'},
-    shared:['Both wanted advancement and dignity for African Americans','Both opposed the worst abuses of Jim Crow','Both published influential works on race in America','Their debate reflects a broader tension: pragmatism vs. principle']
-  },
-  'WWI vs. WWII (US Home Front)':{
-    a:{name:'WWI Home Front',period:'P7',mobilization:'Committee on Public Information (CPI) propaganda; 4 Minute Men',economy:'Liberty Bonds; war industries; Espionage & Sedition Acts',minorities:'Segregated military; Great Migration began; women in workforce',outcome:'19th Amendment; Red Scare; Palmer Raids; return to isolationism'},
-    b:{name:'WWII Home Front',period:'P7',mobilization:'War Production Board; Office of War Information',economy:'Rationing; women in factories ("Rosie the Riveter"); war bonds',minorities:'Japanese internment (EO 9066); FEPC banned defense discrimination; Double V campaign',outcome:'Economic boom; suburbanization; GI Bill; Cold War begins'},
-    shared:['Both required massive civilian mobilization and sacrifice','Both saw women enter the workforce in new roles','Both involved propaganda to build public support','Both led to civil liberties restrictions (Espionage Act vs. internment)','Both transformed the US economy and global role']
-  },
-  'New Deal vs. Great Society':{
-    a:{name:'New Deal (FDR)',period:'P7',context:'Response to Great Depression (25% unemployment)',programs:'WPA, CCC, AAA, TVA, Social Security Act, FDIC, Glass-Steagall',philosophy:'Government must provide relief, recovery, and reform',limits:'Court-packing failure; AAA unconstitutional; never fully ended Depression'},
-    b:{name:'Great Society (LBJ)',period:'P8&9',context:'Response to poverty and racial inequality in prosperous 1960s',programs:'Medicare, Medicaid, Civil Rights Acts (1964/65/68), Head Start, Voting Rights Act',philosophy:'Government can eliminate poverty and racial inequality',limits:'Vietnam War drained funding; white backlash; War on Poverty had mixed results'},
-    shared:['Both dramatically expanded the federal government\'s role','Both built on Progressive Era precedents','Both faced significant political backlash','Both created lasting programs still in existence today','Both were passed during Democratic unified government']
-  },
-  'Reconstruction vs. Civil Rights Movement':{
-    a:{name:'Reconstruction (1865–1877)',period:'P5',gains:'13th/14th/15th Amendments; Black officeholders; Freedman\'s Bureau; public schools',resistance:'KKK; Black Codes; sharecropping; Southern "Redeemers"',end:'Compromise of 1877 withdrew federal troops; Jim Crow emerged',legacy:'Constitutional framework for equality — not enforced for 90 years'},
-    b:{name:'Civil Rights Movement (1954–1968)',period:'P8&9',gains:'Brown v. Board; Civil Rights Acts 1964/65/68; Voting Rights Act; desegregation',resistance:'Massive resistance; police brutality; KKK violence; assassination of MLK',end:'Movement fragmented after 1968; Nixon\'s Southern Strategy exploited backlash',legacy:'Legal equality achieved; de facto inequality persisted; ongoing struggle'},
-    shared:['Both fought for rights promised by the 14th and 15th Amendments','Both faced violent white resistance','Both relied on federal government intervention','Both saw gains reversed or undermined by political compromise','Both were sparked by specific acts of injustice against Black Americans']
-  },
-  'TR Big Stick vs. Wilson Moral Diplomacy':{
-    a:{name:'TR Big Stick Diplomacy',period:'P7',philosophy:'Military power and readiness; "speak softly and carry a big stick"',actions:'Panama Canal; Great White Fleet; Dominican Republic intervention; Roosevelt Corollary',view:'US as "world policeman" in Western Hemisphere',legacy:'US as imperial power; Latin America resented intervention'},
-    b:{name:'Wilson Moral Diplomacy',period:'P7',philosophy:'Only recognize and support democratic governments',actions:'Refused to recognize Huerta in Mexico; intervened in Haiti; supported Carranza',view:'US should spread democracy — but still intervened militarily',legacy:'Contradiction between ideals and actions; foreshadowed Cold War democracy promotion'},
-    shared:['Both involved active US intervention in Latin America','Both relied on US military power, despite different rhetoric','Both reflected belief in American superiority and mission','Both were ultimately imperialist in practice']
-  },
-};
-
-// ═══════════════════════════════
-// BOSS CHALLENGE
-// ═══════════════════════════════
-const BOSS_PERIODS=['P1&2','P3','P4','P5','P6','P7','P8&9'];
-const BOSS_THRESHOLD=80;
-
-function getBossData(){return JSON.parse(localStorage.getItem('apush-boss')||'{}');}
-function saveBossData(d){localStorage.setItem('apush-boss',JSON.stringify(d));}
-
-function initBoss(){
+function exportProgress(){
+  const masteredCount=Object.values(stats.mastered).filter(v=>v>=2).length;
   const boss=getBossData();
-  const area=document.getElementById('boss-area');
-  area.innerHTML=`
-    <div style="background:var(--blue-light);border:1px solid #bdd4ee;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:.875rem;color:var(--blue-dark)">
-      🏆 Score <strong>80% or higher</strong> on each period's quiz to unlock the next period. Complete all 7 to become an APUSH master!
-    </div>
-    <div class="boss-grid">${BOSS_PERIODS.map((p,i)=>{
-      const prev=i===0?true:(boss[BOSS_PERIODS[i-1]]||0)>=BOSS_THRESHOLD;
-      const score=boss[p]||0;
-      const completed=score>=BOSS_THRESHOLD;
-      const locked=!prev&&!completed;
-      return `<div class="boss-card ${completed?'completed':locked?'locked':'unlocked'}" ${!locked?`onclick="startBossQuiz('${p}')"`:''}">
-        <div class="boss-icon">${completed?'✅':locked?'🔒':'⚔️'}</div>
-        <div class="boss-period">${p}</div>
-        <div class="boss-status">${completed?'MASTERED':'Best: '+score+'%'}</div>
-        <div class="boss-bar-wrap"><div class="boss-bar" style="width:${score}%;background:${completed?'var(--green)':'var(--blue)'}"></div></div>
-        <div class="boss-score">${locked?'Complete previous period first':completed?'Click to replay':'Click to attempt'}</div>
-      </div>`;
-    }).join('')}</div>
-    <div id="boss-quiz-area"></div>`;
-}
-
-let bossQ=[],bossIdx=0,bossScore=0,bossAnswered=false,bossTimer=null,bossTime=30,bossPeriod='';
-
-function startBossQuiz(period){
-  bossPeriod=period;
-  const pool=QUIZ.filter(q=>q.p===period);
-  if(!pool.length){alert('No questions for this period yet!');return;}
-  bossQ=shuffle([...pool]).slice(0,Math.min(8,pool.length));
-  bossIdx=0;bossScore=0;
-  document.getElementById('boss-quiz-area').scrollIntoView({behavior:'smooth'});
-  renderBossQ();
-}
-
-function renderBossQ(){
-  clearInterval(bossTimer);
-  if(bossIdx>=bossQ.length){endBossQuiz();return;}
-  bossAnswered=false;bossTime=30;
-  const q=bossQ[bossIdx];
-  document.getElementById('boss-quiz-area').innerHTML=`
-    <div class="card" style="margin-top:20px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-        <span style="font-size:.85rem;color:var(--text-muted)">Boss Q ${bossIdx+1}/${bossQ.length} · <strong>${bossPeriod}</strong></span>
-        <span class="quiz-timer" id="bossTimer">⏱ ${bossTime}s</span>
-      </div>
-      <div class="quiz-q">${q.q}</div>
-      <div class="quiz-options">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="pickBoss(${i})" id="bopt${i}"><span class="opt-letter">${'ABCD'[i]}</span>${o}</button>`).join('')}</div>
-      <div class="quiz-exp" id="bossExp">${q.exp}</div>
-      <div id="bossNext" style="display:none;justify-content:flex-end;margin-top:14px"><button class="btn btn-primary" onclick="bossIdx++;renderBossQ()">${bossIdx+1<bossQ.length?'Next →':'Finish →'}</button></div>
-    </div>`;
-  bossTimer=setInterval(()=>{bossTime--;const el=document.getElementById('bossTimer');if(!el){clearInterval(bossTimer);return;}el.textContent=`⏱ ${bossTime}s`;if(bossTime<=10)el.classList.add('warning');if(bossTime<=0){clearInterval(bossTimer);if(!bossAnswered){bossAnswered=true;const q=bossQ[bossIdx];document.querySelectorAll('.quiz-opt').forEach((o,i)=>{o.disabled=true;if(i===q.ans)o.classList.add('correct');});document.getElementById('bossExp').classList.add('show');document.getElementById('bossNext').style.display='flex';}}},1000);
-}
-
-function pickBoss(i){
-  if(bossAnswered)return;clearInterval(bossTimer);bossAnswered=true;
-  const q=bossQ[bossIdx];const ok=i===q.ans;if(ok)bossScore++;
-  document.querySelectorAll('.quiz-opt').forEach((o,j)=>{o.disabled=true;if(j===q.ans)o.classList.add('correct');else if(j===i&&!ok)o.classList.add('wrong');});
-  document.getElementById('bossExp').classList.add('show');document.getElementById('bossNext').style.display='flex';
-}
-
-function endBossQuiz(){
-  clearInterval(bossTimer);
-  const pct=Math.round(bossScore/bossQ.length*100);
-  const boss=getBossData();
-  boss[bossPeriod]=Math.max(boss[bossPeriod]||0,pct);
-  saveBossData(boss);
-  if(pct>=BOSS_THRESHOLD) launchConfetti();
-  document.getElementById('boss-quiz-area').innerHTML=`
-    <div class="card" style="margin-top:20px;text-align:center;padding:40px">
-      <div style="font-family:'DM Serif Display',serif;font-size:4rem;color:${pct>=BOSS_THRESHOLD?'var(--green)':'var(--red)'};line-height:1;margin-bottom:8px">${pct}%</div>
-      <div style="font-size:1.1rem;margin-bottom:6px">${pct>=BOSS_THRESHOLD?'🏆 Period Unlocked!':'😤 Not quite — need 80%'}</div>
-      <div style="color:var(--text-muted);margin-bottom:24px">${bossScore}/${bossQ.length} correct</div>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="startBossQuiz('${bossPeriod}')">Try Again</button>
-        <button class="btn btn-secondary" onclick="initBoss()">Back to Map</button>
-      </div>
-    </div>`;
+  let out=`APUSH Progress Report\nGenerated: ${new Date().toLocaleString()}\n${'='.repeat(40)}\n\n`;
+  out+=`Cards Mastered: ${masteredCount}/${FC_DATA.length} (${FC_DATA.length?Math.round(masteredCount/FC_DATA.length*100):0}%)\n`;
+  out+=`Study Streak: ${stats.streak.count} days\n\nPeriod Mastery:\n`;
+  ['P1&2','P3','P4','P5','P6','P7','P8&9'].forEach(p=>{const c=FC_DATA.filter(x=>x.p===p),m=c.filter(x=>stats.mastered[x.q]>=2).length;out+=`  ${p}: ${m}/${c.length} (${c.length?Math.round(m/c.length*100):0}%)\n`;});
+  out+=`\nBoss Challenge:\n`;
+  ['P1&2','P3','P4','P5','P6','P7','P8&9'].forEach(p=>{out+=`  ${p}: ${boss[p]||0}% ${(boss[p]||0)>=80?'✓ UNLOCKED':''}\n`;});
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([out],{type:'text/plain'}));a.download='APUSH_Progress.txt';a.click();
 }
 
 // ═══════════════════════════════
-// WEAK SPOT TRAINER
+// PATCH DASHBOARD TO ADD EXPORT
 // ═══════════════════════════════
-function initWS(){
-  // Cards with srWeights < 2 = weak
-  const weakCards=FC_DATA.filter(c=>(stats.srWeights[c.q]||0)<2);
-  const weakQs=QUIZ.filter(q=>{
-    // simple heuristic: track wrong quiz answers
-    const key='qwrong_'+q.q.substring(0,30);
-    return localStorage.getItem(key)==='1';
-  });
-  const area=document.getElementById('ws-area');
-  if(weakCards.length===0&&weakQs.length===0){
-    area.innerHTML=`<div class="ws-empty"><div style="font-size:3rem;margin-bottom:12px">🎉</div><div style="font-size:1.1rem;font-weight:600;margin-bottom:6px">No weak spots found!</div><div>You've mastered everything — or you need to study more flashcards first.</div><div style="margin-top:20px"><button class="btn btn-primary" onclick="showSection('flashcards')">Go to Flashcards</button></div></div>`;
-    return;
-  }
-  area.innerHTML=`
-    <div class="ws-stats">
-      <div class="ws-stat"><div class="ws-stat-val">${weakCards.length}</div><div class="ws-stat-label">Weak Flashcards</div></div>
-      <div class="ws-stat"><div class="ws-stat-val" style="color:var(--accent)">${FC_DATA.length-weakCards.length}</div><div class="ws-stat-label">Strong Cards</div></div>
-    </div>
-    <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:16px">These are the cards you've missed or never marked "Got It." Keep drilling them until they're green!</p>
-    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
-      <button class="btn btn-primary" onclick="startWSSession()">📚 Drill Weak Cards Only</button>
-      <button class="btn btn-secondary" onclick="showSection('flashcards')">View All Flashcards</button>
-    </div>
-    <div id="ws-drill"></div>`;
-}
-
-let wsPool=[],wsIdx=0;
-function startWSSession(){
-  const weakCards=FC_DATA.filter(c=>(stats.srWeights[c.q]||0)<2);
-  if(!weakCards.length){document.getElementById('ws-drill').innerHTML='<p style="color:var(--green);font-weight:600">✅ No more weak cards!</p>';return;}
-  wsPool=shuffle([...weakCards]);wsIdx=0;
-  renderWSCard();
-}
-
-function renderWSCard(){
-  if(wsIdx>=wsPool.length){document.getElementById('ws-drill').innerHTML=`<div class="card" style="text-align:center;padding:32px"><div style="font-size:2rem;margin-bottom:8px">🔁</div><div style="font-weight:600;margin-bottom:16px">Session complete! ${wsPool.length} cards drilled.</div><button class="btn btn-primary" onclick="startWSSession()">Go Again</button></div>`;return;}
-  const c=wsPool[wsIdx];const flipped=false;
-  document.getElementById('ws-drill').innerHTML=`
-    <div class="card" style="margin-bottom:12px">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px">⚠️ Weak Card · ${wsIdx+1}/${wsPool.length} · ${c.p}</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:16px">${c.q}</div>
-      <div id="ws-answer" style="display:none;padding:14px;background:var(--blue-light);border-radius:10px;font-size:.875rem;margin-bottom:16px">${c.a}</div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('ws-answer').style.display='block'">Show Answer</button>
-        <button class="btn btn-danger btn-sm" onclick="wsMarkCard(0)">😰 Still Hard</button>
-        <button class="btn btn-success btn-sm" onclick="wsMarkCard(1)">✓ Got It!</button>
-      </div>
-    </div>`;
-}
-
-function wsMarkCard(ok){
-  const c=wsPool[wsIdx];
-  if(!stats.srWeights[c.q]) stats.srWeights[c.q]=0;
-  if(ok){stats.srWeights[c.q]=Math.min(5,stats.srWeights[c.q]+1);if(!stats.mastered[c.q])stats.mastered[c.q]=0;stats.mastered[c.q]=Math.min(5,stats.mastered[c.q]+1);}
-  else stats.srWeights[c.q]=Math.max(0,stats.srWeights[c.q]-1);
-  saveStats();wsIdx++;renderWSCard();
-}
-
 // ═══════════════════════════════
-// KEY FIGURES
+// WINDOW LOAD — sync custom cards
 // ═══════════════════════════════
-function initFigures(){
-  buildFilter('fig-filter',p=>renderFigures(p));
-  renderFigures('All');
-}
-function renderFigures(period){
-  const list=period==='All'?FIGURES:FIGURES.filter(f=>f.p===period);
-  document.getElementById('fig-area').innerHTML=list.length?`<div class="fig-grid">${list.map(f=>`
-    <div class="fig-card">
-      <div class="fig-emoji">${f.emoji}</div>
-      <div class="fig-name">${f.name}</div>
-      <div class="fig-period">${f.p}</div>
-      <div class="fig-role">${f.role}</div>
-      <div class="fig-sig">${f.sig}</div>
-      <div>${f.tags.map(t=>`<span class="fig-tag">${t}</span>`).join('')}</div>
-    </div>`).join('')}</div>`:'<div style="color:var(--text-muted);padding:32px;text-align:center">No figures for this period yet.</div>';
-}
+window.addEventListener('load',()=>{
+  syncMyCardsToFC();
+});
 
-// ═══════════════════════════════
-// SCOTUS TRACKER
-// ═══════════════════════════════
-function initSCOTUS(){
-  buildFilter('scotus-filter',p=>renderSCOTUS(p));
-  renderSCOTUS('All');
-}
-function renderSCOTUS(period){
-  const list=period==='All'?SCOTUS_CASES:SCOTUS_CASES.filter(c=>c.p===period);
-  document.getElementById('scotus-area').innerHTML=`
-    <div style="overflow-x:auto">
-    <table class="scotus-table">
-      <thead><tr><th>Case</th><th>Year</th><th>Ruling</th><th>APUSH Significance</th></tr></thead>
-      <tbody>${list.map(c=>`<tr>
-        <td><div class="scotus-case">${c.case}</div><div class="scotus-ruling">${c.p} &nbsp;<span class="sig-chip">${c.p}</span></div></td>
-        <td style="font-weight:700;color:var(--blue)">${c.year}</td>
-        <td style="font-size:.83rem">${c.ruling}</td>
-        <td style="font-size:.82rem"><div style="margin-bottom:6px">${c.sig}</div><div style="font-size:.75rem;color:var(--text-muted)">${c.exam}</div></td>
-      </tr>`).join('')}</tbody>
-    </table></div>`;
-}
+window.addEventListener('resize',()=>{if(document.getElementById('connections').classList.contains('active'))drawConn();});
 
-// ═══════════════════════════════
-// COMPARE TOOL
-// ═══════════════════════════════
-function initCompare(){
-  const keys=Object.keys(COMPARE_ITEMS);
-  document.getElementById('compare-area').innerHTML=`
-    <div style="margin-bottom:18px">
-      <label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:8px">Select a comparison:</label>
-      <select onchange="renderCompare(this.value)" style="padding:10px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--surface);color:var(--text);outline:none;cursor:pointer;width:100%;max-width:500px">
-        <option value="">— Choose a comparison —</option>
-        ${keys.map(k=>`<option value="${k}">${k}</option>`).join('')}
-      </select>
-    </div>
-    <div id="compare-result"></div>`;
-}
-
-function renderCompare(key){
-  if(!key){document.getElementById('compare-result').innerHTML='';return;}
-  const d=COMPARE_ITEMS[key];
-  const aKeys=Object.keys(d.a).filter(k=>k!=='name'&&k!=='period');
-  const bKeys=Object.keys(d.b).filter(k=>k!=='name'&&k!=='period');
-  const labelMap={who:'Who',econ:'Economics',govt:'Government',foreign:'Foreign Policy',legacy:'Legacy',strategy:'Strategy',focus:'Focus',speech:'Key Speech/Work',mobilization:'Mobilization',economy:'Economy',minorities:'Minorities',outcome:'Outcome',context:'Context',programs:'Key Programs',philosophy:'Philosophy',limits:'Limits/Failures',gains:'Gains',resistance:'Resistance',end:'End',actions:'Key Actions',view:'View of US Role'};
-  document.getElementById('compare-result').innerHTML=`
-    <div class="compare-result">
-      <div class="compare-col">
-        <div class="compare-col-title">${d.a.name} <span style="font-size:.75rem;color:var(--text-muted)">(${d.a.period})</span></div>
-        ${aKeys.map(k=>`<div class="compare-row"><span class="compare-label">${labelMap[k]||k}:</span><span>${d.a[k]}</span></div>`).join('')}
-      </div>
-      <div class="compare-col">
-        <div class="compare-col-title">${d.b.name} <span style="font-size:.75rem;color:var(--text-muted)">(${d.b.period})</span></div>
-        ${bKeys.map(k=>`<div class="compare-row"><span class="compare-label">${labelMap[k]||k}:</span><span>${d.b[k]}</span></div>`).join('')}
-      </div>
-    </div>
-    ${d.shared?`<div class="compare-shared"><div class="compare-shared-title">✅ What they share / How to write complexity:</div>${d.shared.map(s=>`<div style="margin-bottom:4px">• ${s}</div>`).join('')}</div>`:''}`;
-}
-
-// ═══════════════════════════════
-// CHEAT SHEET
-// ═══════════════════════════════
-const CS_DATA=[
-  {p:'P1&2',dates:'1492–1754',themes:[
-    {label:'Colonization',text:'English (Jamestown 1607, Plymouth 1620, MA Bay 1630), Spanish (Encomienda 1512), French (fur trade alliances)'},
-    {label:'Salutary Neglect',text:'Britain loosely enforced Navigation Laws → colonies self-governed → resisted tighter control post-1763'},
-    {label:'Tensions',text:'Bacon\'s Rebellion 1676 → shift to slavery; Salem Witch Trials 1693; Great Awakening 1730s–40s'},
-  ],events:['1492 Columbian Exchange','1607 Jamestown','1619 House of Burgesses','1620 Plymouth / Mayflower Compact','1651 Navigation Laws','1676 Bacon\'s Rebellion','1730s Great Awakening']},
-  {p:'P3',dates:'1754–1800',themes:[
-    {label:'Revolution',text:'Sugar Act 1764 → Stamp Act 1765 → Boston Massacre 1770 → Tea Party 1773 → Intolerable Acts → Lexington 1775 → Declaration 1776'},
-    {label:'New Government',text:'Articles of Confederation (too weak) → Shays\' Rebellion → Constitution 1788 (Great Compromise, 3/5 Compromise) → Bill of Rights'},
-    {label:'Early Republic',text:'Hamilton vs. Jefferson (bank, tariffs); 2-party system; XYZ Affair; Alien & Sedition Acts; Washington\'s Farewell Address'},
-  ],events:['1777 Saratoga (turning pt)','1781 Yorktown','1787 Constitution / Federalist Papers','1803 Marbury v. Madison (judicial review)','1800 Revolution of 1800']},
-  {p:'P4',dates:'1800–1848',themes:[
-    {label:'Gov\'t Role Debate',text:'Jefferson: strict construction; Marshall Court: federal supremacy; Jackson: spoils system, Bank War, Indian Removal, Nullification Crisis'},
-    {label:'Market Revolution',text:'Steamboat 1807, Erie Canal 1825, railroads, cotton gin, telegraph → industrial North vs. slave-cotton South'},
-    {label:'Age of Reform',text:'2nd Great Awakening → abolitionism (Garrison 1831), women\'s rights (Seneca Falls 1848), temperance, transcendentalism (Emerson, Thoreau)'},
-  ],events:['1803 Louisiana Purchase','1820 Missouri Compromise','1823 Monroe Doctrine','1830 Indian Removal Act','1831 Garrison\'s Liberator','1836 Texas independence','1848 Seneca Falls']},
-  {p:'P5',dates:'1840–1877',themes:[
-    {label:'Manifest Destiny',text:'Mexican-American War 1846–48 → Treaty of Guadalupe Hidalgo → $15M / 500k sq mi → slavery in new territories?'},
-    {label:'Road to Civil War',text:'Compromise of 1850 → Uncle Tom\'s Cabin 1851 → Kansas-Nebraska Act 1854 → Dred Scott 1857 → Lincoln elected 1860 → secession'},
-    {label:'Civil War & Reconstruction',text:'Union advantages won; Emancipation Proclamation 1863; Compromise of 1877 ended Reconstruction → Jim Crow'},
-  ],events:['1854 Kansas-Nebraska Act','1857 Dred Scott','1860 Lincoln elected','1863 Emancipation Proclamation','1865 13th Amendment','1868/70 14th & 15th Amendments','1877 End of Reconstruction']},
-  {p:'P6',dates:'1865–1900',themes:[
-    {label:'Industrial Capitalism',text:'Rockefeller (horizontal integration/Standard Oil); Carnegie (vertical/steel); Social Darwinism; Sherman Antitrust Act 1890'},
-    {label:'Labor vs. Capital',text:'Knights of Labor 1869; AFL 1886 (Gompers); Railroad Strikes 1877; Homestead 1892; Pullman 1894 — all crushed by government'},
-    {label:'Reconstruction\'s Limits',text:'Plessy v. Ferguson 1896 ("separate but equal"); Booker T. Washington vs. DuBois; Dawes Act 1887; Populist Party 1892'},
-  ],events:['1869 Transcontinental Railroad','1876 Battle of Little Bighorn','1887 Dawes Act / Interstate Commerce Act','1890 Sherman Antitrust / NAWSA','1892 Homestead Strike / Populist Party','1894 Pullman Strike','1896 Plessy v. Ferguson']},
-  {p:'P7',dates:'1898–1945',themes:[
-    {label:'Imperialism',text:'Spanish-American War 1898 → Philippines/Guam/Puerto Rico; TR Big Stick; Roosevelt Corollary 1904; Panama Canal 1903'},
-    {label:'Progressive Era / WWI',text:'Muckrakers; Election of 1912; US enters WWI 1917 (Zimmermann); 18th & 19th Amendments; Treaty of Versailles rejected'},
-    {label:'Depression & WWII',text:'Stock market crash 1929; Hoover (laissez-faire); FDR New Deal (WPA/CCC/Social Security); Pearl Harbor 1941; D-Day 1944; Atomic bombs 1945'},
-  ],events:['1898 Spanish-American War','1917 US enters WWI','1919 Treaty of Versailles','1920 19th Amendment','1929 Stock Market Crash','1933 New Deal','1941 Pearl Harbor','1945 Atomic Bombing']},
-  {p:'P8&9',dates:'1945–2001',themes:[
-    {label:'Cold War',text:'Truman Doctrine 1947; Marshall Plan; Korean War 1950–53; Cuban Missile Crisis 1962; Vietnam (Gulf of Tonkin 1964); Nixon/China 1972; Berlin Wall falls 1989'},
-    {label:'Civil Rights',text:'Brown v. Board 1954; Montgomery Boycott 1955; March on Washington 1963; Civil Rights Acts 1964/65/68; Black Power; Roe v. Wade 1973'},
-    {label:'Conservative Resurgence',text:'Nixon/Watergate 1974; Moral Majority 1979; Reaganomics 1980s; Iran-Contra 1987; Gulf War 1991; Clinton impeachment 1999; 9/11 2001'},
-  ],events:['1947 Truman Doctrine','1954 Brown v. Board','1963 March on Washington','1964 Civil Rights Act','1968 Tet Offensive','1974 Nixon resigns','1989 Berlin Wall falls','2001 9/11 / War on Terror']},
-];
-
-function initCheatSheet(){
-  document.getElementById('cs-area').innerHTML=CS_DATA.map(d=>`
-    <div class="cs-period">
-      <div class="cs-period-hdr">${d.p}: ${d.dates}</div>
-      <div class="cs-body">
-        ${d.themes.map(t=>`<div class="cs-theme"><span class="cs-theme-label">${t.label}:</span><span>${t.text}</span></div>`).join('')}
-        <div class="cs-events">${d.events.map(e=>`<span class="cs-event">${e}</span>`).join('')}</div>
-      </div>
-    </div>`).join('');
-}
-
-// ═══════════════════════════════
-// AI TUTOR
-// ═══════════════════════════════
-const AI_SUGGESTIONS=[
-  'What caused the Civil War?',
-  'Explain the New Deal',
-  'Compare Hamilton and Jefferson',
-  'What was Manifest Destiny?',
-  'Why did Reconstruction fail?',
-  'What were Wilson\'s 14 Points?',
-  'Explain the Cold War containment policy',
-  'What caused WWI?',
-];
-
-let aiHistory=[];
-
-function initAITutor(){
-  if(document.getElementById('ai-area').innerHTML.trim()) return; // already initialized
-  aiHistory=[];
-  document.getElementById('ai-area').innerHTML=`
-    <div style="background:var(--blue-light);border:1px solid #bdd4ee;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--blue-dark)">
-      🤖 Powered by Claude — ask any APUSH question and get a detailed, exam-focused answer.
-    </div>
-    <div style="margin-bottom:10px;font-size:.8rem;font-weight:600;color:var(--text-muted)">SUGGESTED QUESTIONS:</div>
-    <div class="ai-suggestions">${AI_SUGGESTIONS.map(s=>`<button class="ai-suggest" onclick="askAI(${JSON.stringify(s)})">${s}</button>`).join('')}</div>
-    <div class="ai-chat" id="ai-chat">
-      <div class="ai-msg bot">
-        <div class="ai-avatar">🤖</div>
-        <div class="ai-bubble">Hi! I\'m your APUSH tutor powered by Claude. Ask me anything about US history from the colonial era through 2001 — events, causes, significance, essay tips, whatever you need!</div>
-      </div>
-    </div>
-    <div class="ai-input-row">
-      <input class="ai-input" id="ai-input" type="text" placeholder="Ask any APUSH question…" onkeydown="if(event.key==='Enter')sendAI()">
-      <button class="btn btn-primary" onclick="sendAI()">Send</button>
-    </div>`;
-}
-
-function sendAI(){
-  const input=document.getElementById('ai-input');
-  const q=input.value.trim();
-  if(!q) return;
-  input.value='';
-  askAI(q);
-}
-
-function askAI(question){
-  // Add user message
-  const chat=document.getElementById('ai-chat');
-  if(!chat) return;
-  chat.innerHTML+=`<div class="ai-msg user"><div class="ai-avatar">👤</div><div class="ai-bubble">${question}</div></div>`;
-  // Add typing indicator
-  chat.innerHTML+=`<div class="ai-msg bot" id="ai-typing"><div class="ai-avatar">🤖</div><div class="ai-bubble"><div class="ai-typing"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div></div>`;
-  chat.scrollTop=chat.scrollHeight;
-
-  aiHistory.push({role:'user',content:question});
-
-  fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system:`You are an expert APUSH (AP US History) tutor. Answer questions clearly and in a way that helps students score well on the AP exam. Focus on: significance, causes/effects, connections across periods, and exam-relevant details. Keep answers focused and well-organized. Use specific dates, names, and events. When relevant, mention how topics connect to DBQ/LEQ writing.`,
-      messages:aiHistory
-    })
-  })
-  .then(r=>r.json())
-  .then(data=>{
-    const typing=document.getElementById('ai-typing');
-    if(typing) typing.remove();
-    const reply=data.content?.[0]?.text||'Sorry, I couldn\'t get a response. Please try again.';
-    aiHistory.push({role:'assistant',content:reply});
-    const chat=document.getElementById('ai-chat');
-    if(chat){
-      // Format the reply a bit
-      const formatted=reply.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
-      chat.innerHTML+=`<div class="ai-msg bot"><div class="ai-avatar">🤖</div><div class="ai-bubble">${formatted}</div></div>`;
-      chat.scrollTop=chat.scrollHeight;
-    }
-  })
-  .catch(err=>{
-    const typing=document.getElementById('ai-typing');
-    if(typing) typing.remove();
-    const chat=document.getElementById('ai-chat');
-    if(chat){
-      chat.innerHTML+=`<div class="ai-msg bot"><div class="ai-avatar">🤖</div><div class="ai-bubble" style="color:var(--red)">Error connecting to AI. Make sure you\'re using this site through Claude\'s interface for AI features to work.</div></div>`;
-      chat.scrollTop=chat.scrollHeight;
-    }
-  });
-}
-
-
-// INIT on load
-window.onload=()=>{
-  if(FC_DATA.length){
-    fcPool=buildFCPool('All');
-    document.getElementById('fc-front').textContent=fcPool[0]?.q||'';
-    document.getElementById('fc-back').textContent=fcPool[0]?.a||'';
-    document.getElementById('fc-pbadge').textContent=fcPool[0]?.p||'';
-    document.getElementById('fc-counter').textContent=`Card 1 of ${fcPool.length}`;
-  }
-  applyDark();
-};
 </script>
+
 <!-- ══ BOSS CHALLENGE ══ -->
 <div id="boss" class="section">
   <div class="page-title">Period Boss Challenge</div>
@@ -1666,6 +1493,35 @@ window.onload=()=>{
   <div class="page-title">AI Tutor</div>
   <div class="page-subtitle">Ask any APUSH question and get an instant, detailed answer powered by Claude.</div>
   <div id="ai-area"></div>
+</div>
+
+<!-- ══ NOTES ══ -->
+<div id="notes" class="section">
+  <div class="page-title">Note-Taking Tool</div>
+  <div class="page-subtitle">Your notes are saved automatically to your browser. Organized by period.</div>
+  <div id="notes-area"></div>
+</div>
+
+<!-- ══ MY CARDS ══ -->
+<div id="mycards" class="section">
+  <div class="page-title">Custom Flashcard Creator</div>
+  <div class="page-subtitle">Add your own cards from class notes. They'll appear in your flashcard deck.</div>
+  <div id="mycards-area"></div>
+</div>
+
+<!-- ══ VIDEOS ══ -->
+<div id="videos" class="section">
+  <div class="page-title">Period Summary Videos</div>
+  <div class="page-subtitle">The best APUSH review videos curated by period. Open in a new tab to watch.</div>
+  <div class="period-filter" id="vid-filter"></div>
+  <div id="vid-area"></div>
+</div>
+
+<!-- ══ SEARCH ══ -->
+<div id="search" class="section">
+  <div class="page-title">Search</div>
+  <div class="page-subtitle">Search across all flashcards, key figures, SCOTUS cases, and more.</div>
+  <div id="search-area"></div>
 </div>
 
 </body>
